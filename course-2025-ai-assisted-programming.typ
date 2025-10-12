@@ -519,13 +519,140 @@
       [
         #align(center)[#text(weight: "bold", size: 20pt)[Key Features #fa-code()]]
         #v(0.5em)
-        - Real-time code suggestions #fa-lightbulb()
-        - Context-aware assistance #fa-brain()
-        - IDE integration (VS Code, JetBrains)
+        - Suggerimenti di codice in tempo reale #fa-lightbulb()
+        - Assistenza contestuale
+        - Integrazione diretta negli IDE 
       ]
     )
   ]
 )
+
+== Copilot - Modelli d'uso e Prezzi
+
+#grid(
+  columns: (1fr, 1fr, 1fr),
+  gutter: 0.8em,
+  align: top,
+  row-gutter: 0.8em,
+  // Free
+  block(
+    fill: rgb("#f8fafc"),
+    width: 100%,
+    inset: 0.7em,
+    radius: 6pt,
+    stroke: (paint: rgb("#64748b"), thickness: 1.5pt),
+    [
+      #text(size: 0.95em, weight: "bold")[#fa-icon("gift") #h(0.2em) Free]
+      #text(size: 1.1em, weight: "bold", fill: rgb("#16a34a"))[Gratis]
+      #text(size: 0.75em)[
+        - 2000 completamenti/mese
+        - 50 msg chat/mese
+        - No modelli premium
+      ]
+    ]
+  ),
+  // Pro
+  block(
+    fill: rgb("#f8fafc"),
+    width: 100%,
+    inset: 0.7em,
+    radius: 6pt,
+    stroke: (paint: rgb("#64748b"), thickness: 1.5pt),
+    [
+      #text(size: 0.95em, weight: "bold")[#fa-icon("star") #h(0.2em) Pro]
+      #text(size: 1.1em, weight: "bold", fill: rgb("#2563eb"))[\$10/mese]
+      #text(size: 0.75em)[
+        - Illimitato
+        - 300 richieste premium
+        - GPT-4, Claude
+        - Agente coding
+        #text(size: 0.65em, fill: gray)[_Gratis studenti_]
+      ]
+    ]
+  ),
+  // Pro+
+  block(
+    fill: rgb("#f8fafc"),
+    width: 100%,
+    inset: 0.7em,
+    radius: 6pt,
+    stroke: (paint: rgb("#64748b"), thickness: 1.5pt),
+    [
+      #text(size: 0.95em, weight: "bold")[#fa-icon("rocket") #h(0.2em) Pro+]
+      #text(size: 1.1em, weight: "bold", fill: rgb("#7c3aed"))[\$39/mese]
+      #text(size: 0.75em)[
+        - Tutto di Pro
+        - 1500 richieste (5x)
+        - Tutti i modelli
+        - o1-preview
+      ]
+    ]
+  ),
+  // Business
+  block(
+    fill: rgb("#f8fafc"),
+    width: 100%,
+    inset: 0.7em,
+    radius: 6pt,
+    stroke: (paint: rgb("#64748b"), thickness: 1.5pt),
+    [
+      #text(size: 0.95em, weight: "bold")[#fa-icon("users") #h(0.4em) Business]
+      #text(size: 1.1em, weight: "bold", fill: rgb("#d97706"))[\$19/user/mese]
+      #text(size: 0.75em)[
+        - Gestione team
+        - Policy aziendali
+        - 300 richieste/user
+        - Customizzazione
+      ]
+    ]
+  ),
+  // Enterprise
+  block(
+    fill: rgb("#f8fafc"),
+    width: 100%,
+    inset: 0.7em,
+    radius: 6pt,
+    stroke: (paint: rgb("#64748b"), thickness: 1.5pt),
+    [
+      #text(size: 0.95em, weight: "bold")[#fa-icon("building") #h(0.2em) Enterprise]
+      #text(size: 1.1em, weight: "bold", fill: rgb("#dc2626"))[\$39/user/mese]
+      #text(size: 0.75em)[
+        - Tutto di Business
+        - 1000 richieste/user
+        - Knowledge base
+        - Enterprise-grade
+      ]
+    ]
+  ),
+  // Schema decisionale
+  block(
+    fill: rgb("#f8fafc"),
+    width: 100%,
+    inset: 0.7em,
+    radius: 6pt,
+    stroke: (paint: rgb("#64748b"), thickness: 1.5pt),
+    [
+      #text(size: 0.95em, weight: "bold")[#fa-icon("question-circle") #h(0.2em) Quale?]
+      #text(size: 0.7em)[
+        - Prova → *Free*
+        - Individuale → *Pro*
+        - Power user → *Pro+*
+        - Team → *Business*
+        - Azienda → *Enterprise*
+      ]
+    ]
+  )
+)
+
+#align(center)[
+  #text(size: 0.75em, fill: gray, style: "italic")[
+    _LLM-agnostic: funziona con diversi modelli (Codex, GPT-4, Claude, o1)_
+  ]
+]
+
+== Copilot - Installazione
+
+== Copilot - Installazione (VScode)
 
 
 == Copilot (Github)
