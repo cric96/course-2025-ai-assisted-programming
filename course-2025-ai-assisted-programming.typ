@@ -113,7 +113,6 @@
       - *Progetti*: Core developer di [ScaFi](http://scafi.github.io/) (programmazione aggregata in Scala)
     ]
 
-    #v(0.3em)
 
     #text(size: 0.85em, fill: gray)[
       #fa-icon("envelope")\~ gianluca.aguzzi\@unibo.it\ #fa-icon("globe")\~  https://cric96.github.io/
@@ -126,6 +125,21 @@
 
 = AI-assisted Programming
 
+== Cosa sta succedendo?
+#figure(image("images/tweet-1.png", width: 100%))
+
+== Cosa sta succedendo?
+#figure(image("images/tweet-3.png", width: 100%))
+
+== Cosa sta succedendo?
+#figure(image("images/andreji.png", width: 60%))
+
+== Cosa sta succedendo?
+#figure(image("images/evolution.png", width: 100%))
+
+== Costa sta succedendo?
+#image("images/users.jpeg", width: 100%)
+
 == Che cosa è l'AI-assisted Programming?
 #definition-block(
   "Definizione",
@@ -133,10 +147,19 @@
     #strong(emph([AI-assisted programming (AIP)])) è l'uso di tecniche di #strong(emph([intelligenza artificiale])) per #underline([assistere]) gli sviluppatori nel processo di #underline([scrittura]), #underline([revisione]) e #underline([manutenzione]) del codice.
   ]
 )
-#figure(image("images/ai-assisted.png", width: 50%))
 
+#v(1em)
 
-== Che cosa non è l'AI-assisted Programming? (1/6)
+#note-block(
+  "Obiettivo",
+  [
+    *Migliorare* #underline([produttività]) e #underline([qualità del codice]) attraverso #underline([suggerimenti intelligenti]), #underline([riduzione di task ripetitivi]), e #underline([identificazione proattiva]) di bug e vulnerabilità.
+  ]
+)
+
+== Importanza attuale
+
+== Che cosa non è l'AI-assisted Programming? (1/5)
 #align(center)[
   #text(size: 1.5em, weight: "bold")[Non è un chatbot generico]
 ]
@@ -158,7 +181,7 @@
   ]
 ]
 
-== Che cosa non è l'AI-assisted Programming? (2/6)
+== Che cosa non è l'AI-assisted Programming? (2/5)
 #align(center)[
   #text(size: 1.5em, weight: "bold")[Non è un generatore di codice "one-shot"]
 ]
@@ -180,7 +203,7 @@
   ]
 ]
 
-== Che cosa non è l'AI-assisted Programming? (3/6)
+== Che cosa non è l'AI-assisted Programming? (3/5)
 #align(center)[
   #text(size: 1.5em, weight: "bold")[Non è solo IntelliSense o code snippets]
 ]
@@ -202,7 +225,7 @@
   ]
 ]
 
-== Che cosa non è l'AI-assisted Programming? (4/6)
+== Che cosa non è l'AI-assisted Programming? (4/5)
 #align(center)[
   #text(size: 1.5em, weight: "bold")[Non sostituisce lo sviluppatore]
 ]
@@ -224,7 +247,7 @@
   ]
 ]
 
-== Che cosa non è l'AI-assisted Programming? (5/6)
+== Che cosa non è l'AI-assisted Programming? (5/5)
 #align(center)[
   #text(size: 1.5em, weight: "bold")[Non è Vibe Coding]
 ]
@@ -246,32 +269,8 @@
   ]
 ]
 
-== Che cosa non è l'AI-assisted Programming? (6/6)
-#align(center)[
-  #text(size: 1.5em, weight: "bold")[Non è solo documentazione automatica]
-]
-
-#v(1em)
-
-#concept-block("Caratteristiche")[
-  - *Non si limita* a generare commenti o documentazione dal codice esistente
-  - *Va oltre* la semplice descrizione di cosa fa il codice
-  - *Assiste attivamente* nella scrittura, refactoring e debugging
-  - *È integrato* in tutto il ciclo di vita dello sviluppo software
-]
-
-#v(0.5em)
-
-#align(center)[
-  #text(size: 0.9em, fill: rgb("#666666"))[
-    _L'AI-assisted programming copre l'intero ciclo di sviluppo: scrittura, test, debug, refactoring_
-  ]
-]
 
 
-
-== Importanza attuale
-#figure(image("images/evolution.png", width: 100%))
 == Storia e contesto
 - Obiettivo: migliorare la produttività e la qualità del codice
 
@@ -395,7 +394,6 @@
 
 
 == Copilot (Github)
-#image("images/users.jpeg", width: 100%)
 
 
 - Cos'è
