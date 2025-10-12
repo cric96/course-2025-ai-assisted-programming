@@ -75,8 +75,9 @@
     title, 
     content, 
     icon: icon,
-    fill-color: rgb("#23373b").lighten(90%),
-    stroke-color: rgb("#23373b").lighten(50%),
+    fill-color: rgb("#f0f9ff"),      // soft blue background
+    stroke-color: rgb("#0ea5e9"),     // sky blue border
+    title-color: rgb("#0c4a6e"),      // deep blue title
     title-size: 22pt
   )
 }
@@ -86,8 +87,9 @@
     title, 
     content, 
     icon: icon,
-    fill-color: rgb("#fffde7"),
-    stroke-color: rgb("#ffecb3"),
+    fill-color: rgb("#ecfdf5"),       // soft mint background
+    stroke-color: rgb("#10b981"),      // emerald border
+    title-color: rgb("#065f46"),       // deep green title
   )
 }
 
@@ -96,8 +98,53 @@
     title, 
     content, 
     icon: icon,
-    fill-color: rgb("#fff3e0"),
-    stroke-color: rgb("#ffcc80"),
-    title-color: rgb("#e65100"),
+    fill-color: rgb("#fef3c7"),       // soft amber background
+    stroke-color: rgb("#f59e0b"),      // amber border
+    title-color: rgb("#92400e"),       // deep amber title
+  )
+}
+
+/// Definition callout box
+///
+/// - title (str): heading for the box (default "Definizione")
+/// - content (content): body content
+#let definition-block(title, content, icon: fa-book() + " ") = {
+  styled-block(
+    title,
+    content,
+    icon: icon,
+    fill-color: rgb("#ede9fe"),       // soft purple background
+    stroke-color: rgb("#8b5cf6"),      // violet border
+    title-color: rgb("#5b21b6"),       // deep purple title
+  )
+}
+
+/// Example callout box
+///
+/// - title (str): heading for the box (default "Esempio")
+/// - content (content): body content
+#let example-block(title, content, icon: fa-lightbulb() + " ") = {
+  styled-block(
+    title,
+    content,
+    icon: icon,
+    fill-color: rgb("#dcfce7"),       // soft lime background
+    stroke-color: rgb("#22c55e"),      // green border
+    title-color: rgb("#15803d"),       // deep green title
+  )
+}
+
+/// Concept/Important callout box
+///
+/// - title (str): heading for the box (default "Concetto chiave")
+/// - content (content): body content
+#let concept-block(title, content, icon: fa-star() + " ") = {
+  styled-block(
+    title,
+    content,
+    icon: icon,
+    fill-color: rgb("#fff7ed"),       // soft orange background
+    stroke-color: rgb("#fb923c"),      // orange border
+    title-color: rgb("#c2410c"),       // deep orange title
   )
 }
