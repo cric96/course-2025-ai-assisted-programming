@@ -148,3 +148,39 @@
     title-color: rgb("#c2410c"),       // deep orange title
   )
 }
+
+/// Feature card for AI-assisted capabilities
+///
+/// - icon (content): FontAwesome icon
+/// - title (str): Feature name
+/// - description (str): Short description
+/// - gradient-from (color): Start color for gradient
+/// - gradient-to (color): End color for gradient
+/// - stroke-color (color): Border color
+/// - title-color (color): Title text color
+#let feature-card(
+  icon,
+  title,
+  description,
+  gradient-from,
+  gradient-to,
+  stroke-color,
+  title-color
+) = {
+  block(
+    width: 100%,
+    inset: 1em,
+    fill: gradient.linear(gradient-from, gradient-to),
+    radius: 10pt,
+    stroke: 2pt + stroke-color,
+    [
+      #align(center)[
+        #text(size: 2.2em)[#icon]
+        #v(0.25em)
+        #text(size: 1em, weight: "bold", fill: title-color)[#title]
+        #v(0.15em)
+        #text(size: 0.8em, fill: rgb("#475569"))[#description]
+      ]
+    ]
+  )
+}

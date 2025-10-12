@@ -157,7 +157,61 @@
   ]
 )
 
-== Importanza attuale
+== AI-assisted - Cosa?
+
+#grid(
+  columns: (1fr, 1fr, 1fr),
+  gutter: 0.8em,
+  row-gutter: 0.8em,
+  feature-card(
+    fa-keyboard(),
+    "Autocompletamento",
+    "Scrive codice mentre digiti",
+    rgb("#dbeafe"), rgb("#eff6ff"),
+    rgb("#3b82f6"),
+    rgb("#1e40af")
+  ),
+  feature-card(
+    fa-search(),
+    "Analisi",
+    "Trova errori e vulnerabilità",
+    rgb("#f3e8ff"), rgb("#faf5ff"),
+    rgb("#a855f7"),
+    rgb("#7c3aed")
+  ),
+  feature-card(
+    fa-code(),
+    "Generazione",
+    "Da italiano a codice",
+    rgb("#d1fae5"), rgb("#ecfdf5"),
+    rgb("#10b981"),
+    rgb("#059669")
+  ),
+  feature-card(
+    fa-wrench(),
+    "Refactoring",
+    "Migliora il codice",
+    rgb("#fecaca"), rgb("#fee2e2"),
+    rgb("#ef4444"),
+    rgb("#dc2626")
+  ),
+  feature-card(
+    fa-file-text(),
+    "Documentazione",
+    "Genera guide automatiche",
+    rgb("#bfdbfe"), rgb("#dbeafe"),
+    rgb("#3b82f6"),
+    rgb("#2563eb")
+  ),
+  feature-card(
+    fa-bug(),
+    "Debugging",
+    "Risolve bug velocemente",
+    rgb("#fed7aa"), rgb("#ffedd5"),
+    rgb("#f97316"),
+    rgb("#ea580c")
+  )
+)
 
 == Che cosa non è l'AI-assisted Programming? (1/5)
 #align(center)[
@@ -281,30 +335,7 @@
 - Anni 2000: plugin e estensioni
 - Anni 2010: modelli di linguaggio pre-addestrati
 
-== AI-assisted - Cosa?
-#feature-block("Autocompletamento del codice")[
-  Mentre scrivi, l'AI suggerisce il completamento del codice in tempo reale. 
-]
 
-#feature-block("Analisi statica del codice")[
-  L'AI esamina il codice per individuare errori, vulnerabilità e potenziali miglioramenti.
-]
-
-#feature-block("Generazione automatica di codice")[
-  L'AI può generare blocchi di codice basati su descrizioni in linguaggio naturale o specifiche tecniche.
-]
-
-#feature-block("Refactoring intelligente")[
-  L'AI suggerisce modi per migliorare la struttura del codice senza modificarne il comportamento.
-]
-
-#feature-block("Documentazione automatica")[
-  L'AI può generare documentazione per il codice esistente, rendendo più facile per gli sviluppatori comprendere e mantenere il codice.
-]
-
-#feature-block("Debugging assistito")[
-  L'AI aiuta a identificare e risolvere bug nel codice, suggerendo correzioni basate su modelli di errore comuni.
-]
 
 == Pre AI-assisted Programming -- IDE e Intellisense
 - IDE (Integrated Development Environment)
