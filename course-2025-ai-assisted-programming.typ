@@ -85,7 +85,15 @@
 #text(size: 1.3em)[
   #components.adaptive-columns(outline(title: none, indent: 1em, depth: 1))
 ]
-
+#focus-slide[
+  == Obiettivi
+  #align(left)[
+    - Cos'è #strong(emph([AI-assisted programming])) e perché è #underline([importante])
+    - #strong([Soluzioni e strumenti principali]) (focus su #emph([GitHub Copilot]))
+    - #strong([Demo pratica]) e discussione #underline([funzionalità])
+    - #strong([Limiti]), #emph([criticità]) ed #underline([etica]) dell'AI-assisted
+  ]
+]
 
 == Ciao, Mondo :)
 #grid(
@@ -277,7 +285,7 @@
   gutter: 1.5em,
   align: top,
   [
-    #definition-block("IDE")[
+    #concept-block("IDE")[
       *Integrated Development Environment*
       - Editor + Compilatore + Debugger
       - Version control integration
@@ -393,7 +401,7 @@
 
 
 == Livello 1: Code Completion
-#concept-block("AI Suggerisce, Umano Guida")[
+#concept-block("L'AI Suggerisce, L'Umano Guida")[
   - L'AI *completa singole righe o blocchi di codice*
   - Basato sul *contesto immediato* della scrittura
   - Lo sviluppatore mantiene il *controllo totale* della direzione
@@ -405,7 +413,7 @@
 ]
 
 == Livello 2: Code Creation
-#concept-block("AI Crea, Umano Supervisiona")[
+#concept-block("L'AI Crea, L'Umano Supervisiona")[
   - L'AI genera *sezioni più ampie di codice*
   - Può *progettare API e correggere codice esistente*
   - Richiede *comprensione del codebase e del contesto*
@@ -429,7 +437,7 @@
 ]
 
 == Livello 4: Full Automation
-#concept-block("AI Autonoma, Supervisione Minima")[
+#concept-block("AI Autonoma, Supervisione Minima - Agentic AI")[
   - L'AI gestisce *task complessi in completa autonomia*
   - *Non richiede approvazione umana* per ogni modifica
   - Opera come un *senior engineer fidato*
@@ -452,16 +460,6 @@
   Sistemi AI che evolvono autonomamente architetture e strategie di sviluppo
 ]
 
-
-== Storia e contesto
-- Obiettivo: migliorare la produttività e la qualità del codice
-
-- Anni '80: sistemi di completamento automatico
-- Anni '90: IDE con funzionalità
-  - Refactoring
-  - Analisi statica del codice
-- Anni 2000: plugin e estensioni
-- Anni 2010: modelli di linguaggio pre-addestrati
 
 
 == AI-assisted vs Vibe Coding

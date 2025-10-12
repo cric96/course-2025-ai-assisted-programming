@@ -285,11 +285,11 @@
       alert: utils.alert-with-primary-color,
     ),
     config-colors(
-      primary: rgb("#059669"),           // Emerald green - professional and modern
-      primary-light: rgb("#d1fae5"),     // Light emerald for accents
-      secondary: rgb("#1f2937"),         // Deep charcoal for headers
+      primary: rgb("#14b8a6"),           // Vibrant teal - works on both light and dark
+      primary-light: rgb("#ccfbf1"),     // Light teal for accents
+      secondary: rgb("#1e293b"),         // Deep slate for headers
       neutral-lightest: rgb("#fafaf9"),  // Warm off-white for backgrounds
-      neutral-dark: rgb("#44403c"),      // Warm stone gray for text
+      neutral-dark: rgb("#57534e"),      // Warm stone gray for text
       neutral-darkest: rgb("#292524"),   // Dark warm gray for emphasis
     ),
     // save the variables for later use
