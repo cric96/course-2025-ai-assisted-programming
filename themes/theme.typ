@@ -285,12 +285,12 @@
       alert: utils.alert-with-primary-color,
     ),
     config-colors(
-      primary: rgb("#0ea5e9"),           // Modern sky blue - vibrant and professional
-      primary-light: rgb("#bae6fd"),     // Light sky blue for accents
-      secondary: rgb("#0c4a6e"),         // Deep blue for headers
-      neutral-lightest: rgb("#fafafa"),  // Almost white for backgrounds
-      neutral-dark: rgb("#334155"),      // Slate gray for text
-      neutral-darkest: rgb("#1e293b"),   // Dark slate for emphasis
+      primary: rgb("#059669"),           // Emerald green - professional and modern
+      primary-light: rgb("#d1fae5"),     // Light emerald for accents
+      secondary: rgb("#1f2937"),         // Deep charcoal for headers
+      neutral-lightest: rgb("#fafaf9"),  // Warm off-white for backgrounds
+      neutral-dark: rgb("#44403c"),      // Warm stone gray for text
+      neutral-darkest: rgb("#292524"),   // Dark warm gray for emphasis
     ),
     // save the variables for later use
     config-store(

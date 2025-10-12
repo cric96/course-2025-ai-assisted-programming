@@ -218,7 +218,6 @@
   #text(size: 1.5em, weight: "bold")[Non è un chatbot generico]
 ]
 
-#v(1em)
 
 #concept-block("Caratteristiche")[
   - *Non è* semplicemente ChatGPT o altri LLM conversazionali usati senza integrazione
@@ -227,7 +226,6 @@
   - *Non fornisce* feedback in tempo reale durante la scrittura del codice
 ]
 
-#v(0.5em)
 
 #align(center)[
   #text(size: 0.9em, fill: rgb("#666666"))[
@@ -249,8 +247,6 @@
   - *Genera* codice "generico" che poi devi adattare manualmente al tuo progetto
 ]
 
-#v(0.5em)
-
 #align(center)[
   #text(size: 0.85em, fill: rgb("#666666"))[
     _L'AI-assisted programming sa cosa c'è nel tuo progetto e genera codice già integrato_
@@ -262,8 +258,6 @@
   #text(size: 1.5em, weight: "bold")[Non è solo IntelliSense o code snippets]
 ]
 
-#v(1em)
-
 #concept-block("Caratteristiche")[
   - *Non è* il classico IntelliSense/autocomplete degli IDE (completamento basato su sintassi e tipi)
   - *Non è* limitato a snippet predefiniti (es: `for` → template di ciclo fisso)
@@ -271,20 +265,97 @@
   - *Non impara* dal contesto o dallo stile: ogni volta suggerisce le stesse cose
 ]
 
-#v(0.5em)
-
 #align(center)[
   #text(size: 0.85em, fill: rgb("#666666"))[
     _L'AI-assisted programming "capisce" l'intento e genera codice contestuale, non solo completa sintassi_
   ]
 ]
 
+== Pre AI: IDE e IntelliSense
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1.5em,
+  align: top,
+  [
+    #definition-block("IDE")[
+      *Integrated Development Environment*
+      - Editor + Compilatore + Debugger
+      - Version control integration
+      - Build automation
+      
+      #text(size: 0.8em, fill: gray)[VS Code, IntelliJ, Eclipse, PyCharm]
+    ]
+  ],
+  [
+    #concept-block("IntelliSense")[
+      *Autocomplete intelligente*
+      - Suggerimenti basati su *sintassi e tipi*
+      - Analisi statica del codice (AST)
+      - Documentazione inline
+      - Quick fixes e import automatici
+    ]
+  ]
+)
+
+== Come Funziona IntelliSense?
+#concept-block("Meccanismo")[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 1em,
+    [
+      *Analisi del Codice*
+      - Parsing e costruzione AST
+      - Type inference
+      - Conosce API delle librerie
+    ],
+    [
+      *Suggerimenti*
+      - Filtra per tipo compatibile
+      - Mostra firma dei metodi
+      - Basato su regole fisse
+    ]
+  )
+]
+
+#v(0.5em)
+
+#example-block("Esempio")[
+  Digitando `list.` → mostra solo metodi di `List`: `add()`, `remove()`, `size()`
+]
+
+== Limitazioni: IntelliSense vs AI-Assisted
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1.5em,
+  align: top,
+  [
+    #warning-block("IntelliSense")[
+      - ❌ Non comprende l'*intento*
+      - ❌ Contesto *limitato* al file
+      - ❌ Non *genera logica*
+      - ❌ Regole *fisse*, non impara
+      
+      #v(0.5em)
+      #text(size: 0.85em)[_Completa sintassi, non implementa algoritmi_]
+    ]
+  ],
+  [
+    #concept-block("AI-Assisted")[
+      - ✅ Comprende *semantica e intento*
+      - ✅ Contesto *intero progetto*
+      - ✅ Genera *implementazioni complete*
+      - ✅ *Apprende* da milioni di repository
+      
+      #v(0.5em)
+      #text(size: 0.85em)[_Scrive codice funzionante, non solo suggerisce_]
+    ]
+  ]
+)
+
 == Che cosa non è l'AI-assisted Programming? (4/5)
 #align(center)[
   #text(size: 1.5em, weight: "bold")[Non sostituisce lo sviluppatore]
 ]
-
-#v(1em)
 
 #concept-block("Caratteristiche")[
   - *Non è* un sistema completamente autonomo che può sviluppare software da solo
@@ -292,8 +363,6 @@
   - *Non comprende* requisiti di business complessi o trade-off architetturali
   - *Non ha* responsabilità legale o etica sulle decisioni di design
 ]
-
-#v(0.5em)
 
 #align(center)[
   #text(size: 0.9em, fill: rgb("#666666"))[
@@ -305,24 +374,83 @@
 #align(center)[
   #text(size: 1.5em, weight: "bold")[Non è Vibe Coding]
 ]
-
-#v(1em)
-
 #concept-block("Caratteristiche")[
-  - *Non è* codice scritto basandosi solo sull'intuizione senza comprensione
-  - *Manca* la verifica, il testing e la validazione appropriata
-  - *Non garantisce* correttezza, sicurezza o manutenibilità
-  - *Promuove* cattive pratiche e debito tecnico
+  - *Sviluppo guidato solo da linguaggio naturale* senza mai leggere o analizzare il codice generato
+  - *Iterazioni chat-based*: descrivi problema → AI genera codice → esegui → se non funziona, ridescivi
+  - *Nessuna ispezione del codice*: il programmatore non legge, non capisce, non valida quello che viene scritto
+  - *Approccio "black-box"*: il codice è un mistero, si valuta solo se "funziona" o "non funziona"
 ]
 
-#v(0.5em)
 
 #align(center)[
-  #text(size: 0.9em, fill: rgb("#666666"))[
-    _L'AI-assisted programming supporta best practices, testing e code quality_
+  #text(size: 0.85em, fill: rgb("#666666"))[
+    _L'AI-assisted programming richiede comprensione, revisione critica e best practices_
   ]
 ]
 
+== AI-assisted - Livelli di assistenza
+#figure(image("images/level-of-ai.png", width: 80%))
+
+
+== Livello 1: Code Completion
+#concept-block("AI Suggerisce, Umano Guida")[
+  - L'AI *completa singole righe o blocchi di codice*
+  - Basato sul *contesto immediato* della scrittura
+  - Lo sviluppatore mantiene il *controllo totale* della direzione
+  - L'AI è un *acceleratore per task ripetitivi*
+]
+
+#example-block("Esempi")[
+  Suggerimenti durante la digitazione, completamento di funzioni standard
+]
+
+== Livello 2: Code Creation
+#concept-block("AI Crea, Umano Supervisiona")[
+  - L'AI genera *sezioni più ampie di codice*
+  - Può *progettare API e correggere codice esistente*
+  - Richiede *comprensione del codebase e del contesto*
+  - Lo sviluppatore *revisiona e integra* il codice generato
+]
+
+#example-block("Esempi")[
+  Generazione di classi complete, implementazione di pattern architetturali
+]
+
+== Livello 3: Supervised Automation
+#concept-block("AI Guida, Umano Valida")[
+  - L'AI *gestisce task multipli* per obiettivi più ampi
+  - Funziona come un *junior developer autonomo*
+  - Può *correggere bug, aggiungere feature, integrare sistemi*
+  - Richiede *supervisione* ma non controllo continuo
+]
+
+#example-block("Esempi")[
+  Implementazione di feature end-to-end con revisione finale umana
+]
+
+== Livello 4: Full Automation
+#concept-block("AI Autonoma, Supervisione Minima")[
+  - L'AI gestisce *task complessi in completa autonomia*
+  - *Non richiede approvazione umana* per ogni modifica
+  - Opera come un *senior engineer fidato*
+  - *Monitora proattivamente* il codice e risolve problemi
+]
+
+#example-block("Esempi")[
+  Manutenzione continua, ottimizzazioni automatiche, gestione della qualità
+]
+
+== Livello 5: AI-Led Full Autonomy
+#concept-block("AI Autonoma e Strategica")[
+  - L'AI *definisce i propri obiettivi* e strategie
+  - Non segue solo istruzioni, ma *opera su reward function*
+  - *Interagisce con altri agenti AI* in modo indipendente
+  - Scenario *futuristico ma plausibile* dato il progresso attuale
+]
+
+#example-block("Esempi")[
+  Sistemi AI che evolvono autonomamente architetture e strategie di sviluppo
+]
 
 
 == Storia e contesto
@@ -335,28 +463,6 @@
 - Anni 2000: plugin e estensioni
 - Anni 2010: modelli di linguaggio pre-addestrati
 
-
-
-== Pre AI-assisted Programming -- IDE e Intellisense
-- IDE (Integrated Development Environment)
-
-- Funzionalità di Intellisense
-  - Completamento automatico
-  - Suggerimenti di codice
-  - Navigazione del codice
-  - Refactoring di base
-
-- Limitazioni
-  - Basato su regole statiche
-  - Non comprende il contesto
-  - Non impara dall'uso
-
-== AI-assisted - Livelli di assistenza
-
-== AI-assisted - Livello 0
-== AI-assisted - Livello 1
-== AI-assisted - Livello 2
-== AI-assisted - Livello 3
 
 == AI-assisted vs Vibe Coding
 - Claims
