@@ -460,26 +460,300 @@
   Sistemi AI che evolvono autonomamente architetture e strategie di sviluppo
 ]
 
+== Sfide, Problemi e Criticità
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1.5em,
+  align: center,
+  [
+    #figure(
+      image("images/current-state.png", width: 100%),
+
+    )
+  ],
+  [
+    #figure(
+      image("images/perception.png", width: 100%),
+    )
+  ]
+)
+
+== Sfide, Problemi e Criticità
+#figure(image("images/problems.png", width: 80%))
+
+== Sfide, Problemi e Criticità
+#figure(image("images/risk.png", width: 60%))
 
 
-== AI-assisted vs Vibe Coding
-- Claims
-- Definizione
-- Cosa c'era prima?
-- Storia e contesto
-- Importanza attuale
-- Applicazioni principali
-- Sfide e opportunità
-- Implicazioni etiche
+== Sfide, Problemi e Criticità
+#figure(image("images/chatgpt-impact.png", width: 50%))
+
+#figure(image("images/cognitive-deload.png", width: 80%))
 
 = Soluzioni Principali
 
-== Tipologie di soluzioni
-- Obiettivo generale
+== Panoramica del mercato
 
-- Web based
-- IDE
-- Plugins
+#figure(image("images/overview.drawio.png", width: 80%))
+
+== Tipologie di soluzioni AI-assisted
+#align(center)[
+  #text(size: 1.4em, weight: "bold")[Tre approcci principali]
+]
+
+#v(2em)
+
+#align(center)[
+  #grid(
+    columns: (1fr, 1fr, 1fr),
+    gutter: 3em,
+    align: center + horizon,
+    [
+      #text(size: 3em)[🔌]
+      #v(0.3em)
+      #text(size: 1.2em, weight: "bold")[Plugin/Estensioni]
+    ],
+    [
+      #text(size: 3em)[💻]
+      #v(0.3em)
+      #text(size: 1.2em, weight: "bold")[IDE Nativi AI]
+    ],
+    [
+      #text(size: 3em)[🌐]
+      #v(0.3em)
+      #text(size: 1.2em, weight: "bold")[Web-based]
+    ]
+  )
+]
+
+#v(1.5em)
+
+#align(center)[
+  #grid(
+    columns: (1fr, 1fr, 1fr),
+    gutter: 3em,
+    align: center,
+    [
+      #text(size: 0.95em, fill: gray, style: "italic")[
+        Si integrano nell'IDE esistente
+      ]
+    ],
+    [
+      #text(size: 0.95em, fill: gray, style: "italic")[
+        Editor completo AI-first
+      ]
+    ],
+    [
+      #text(size: 0.95em, fill: gray, style: "italic")[
+        IDE nel browser
+      ]
+    ]
+  )
+]
+
+== Approccio 1: Plugin/Estensioni 
+
+#grid(
+  columns: (auto, 1fr, 1fr),
+  gutter: 1.5em,
+  align: (center, top, top),
+  [
+    #text(size: 4em)[🔌]
+    
+    #v(0.5em)
+    
+    #text(size: 0.85em, weight: "bold")[
+      Estensioni che si\
+      integrano negli\
+      IDE esistenti
+    ]
+  ],
+  [
+    #text(weight: "bold", size: 0.95em)[📦 Esempi]
+    - *GitHub Copilot* (VS Code, JetBrains, Neovim)
+    - *Amazon Q Developer* (multi-IDE)
+    - *Tabnine* (enterprise-grade)
+    - *Codeium* (gratuito)
+    
+    #v(0.8em)
+    
+    #text(weight: "bold", size: 0.95em)[⚙️ Come funzionano]
+    1. Installi il plugin nel tuo IDE
+    2. Configuri account/API key
+    3. AI si integra nell'editor
+    4. Lo sviluppatore ha la stessa esperienza di prima
+  ],
+  [
+    #text(weight: "bold", size: 0.95em, fill: rgb("#16a34a"))[✅ Vantaggi]
+    - IDE full-fledged
+    - Non invasivo
+    - Ecosistema compatibile
+    - Portabilità
+    
+    #v(0.8em)
+    
+    #text(weight: "bold", size: 0.95em, fill: rgb("#dc2626"))[⚠️ Svantaggi]
+    - Limitato da API IDE
+    - Esperienza meno #underline[ergonomica]
+      - Tipicamente la parte AI è secondaria
+    - Alcune features mancanti
+      - Es. modalità agente
+  ]
+)
+
+== Approccio 2: IDE Nativi AI 
+
+#grid(
+  columns: (auto, 1fr, 1fr),
+  gutter: 1.5em,
+  align: (center, top, top),
+  [
+    #text(size: 4em)[💻]
+    
+    #v(0.5em)
+    
+    #text(size: 0.85em, weight: "bold")[
+      Editor completi\
+      progettati da zero\
+      con AI al centro
+    ]
+  ],
+  [
+    #text(weight: "bold", size: 0.95em)[📦 Esempi]
+    - *Cursor* (fork VS Code, 2022)
+    - *Windsurf* (Codeium, Cascade)
+    - *Zed* (velocissimo con AI)
+    - *Replit* (cloud + Ghostwriter)
+    
+    #v(0.8em)
+    
+    #text(weight: "bold", size: 0.95em)[⚙️ Come funzionano]
+    1. L'IDE/editor è progettato per AI
+    2. Il codice va tipicamente in #underline[secondo piano]
+      - Ci si concentra sulla parte conversazionale
+  ],
+  [
+    #text(weight: "bold", size: 0.95em, fill: rgb("#16a34a"))[✅ Vantaggi]
+    - Pensata anche per non esperti in sviluppo software
+    - Features avanzate (agent)
+    - Zero overhead
+    
+    #v(0.8em)
+    
+    #text(weight: "bold", size: 0.95em, fill: rgb("#dc2626"))[⚠️ Svantaggi]
+    - Lock-in editor
+    - Meno estensioni/linguaggi supportati
+    - Meno maturo
+      - Sono tipicamente progetti recenti
+  ]
+)
+
+== Approccio 3: Web-based 
+
+#grid(
+  columns: (auto, 1fr, 1fr),
+  gutter: 1.5em,
+  align: (center, top, top),
+  [
+    #text(size: 4em)[🌐]
+    
+    #v(0.5em)
+    
+    #text(size: 0.85em, weight: "bold")[
+      IDE completi\
+      nel browser\
+      con AI e deploy
+    ]
+  ],
+  [
+    #text(weight: "bold", size: 0.95em)[📦 Esempi]
+    - *Replit* (Ghostwriter AI)
+    - *StackBlitz* (WebContainer)
+    - *CodeSandbox* (Copilot)
+    - *Bolt.new* (AI full-stack)
+    
+    #v(0.8em)
+    
+    #text(weight: "bold", size: 0.95em)[⚙️ Come funzionano]
+    1. Apri il sito web
+    2. Crei/importi progetto
+    3. Code + AI + deploy)
+    4. Condividi con link
+  ],
+  [
+    #text(weight: "bold", size: 0.95em, fill: rgb("#16a34a"))[✅ Vantaggi]
+    - Zero setup
+    - Collaborazione real-time
+    - Deploy istantaneo
+    - Multi-device
+    
+    #v(0.8em)
+    
+    #text(weight: "bold", size: 0.95em, fill: rgb("#dc2626"))[⚠️ Svantaggi]
+    - Focus su web dev
+    - Il codice anche qui è in secondo piano
+    - Problemi di privacy
+    - Inadatto per progetti grandi
+    - Spesso freemium
+  ]
+)
+== Quale approccio scegliere?
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1.5em,
+  align: top,
+  [
+    #concept-block("Scegli un PLUGIN se...")[
+      - Hai già un #strong([IDE preferito]) (VS Code, IntelliJ, etc.)
+      - Vuoi #underline([mantenere il tuo workflow esistente])
+      - Lavori con #emph([progetti enterprise complessi])
+      - Preferisci #strong([stabilità]) e #strong([maturità])
+      
+      #v(0.5em)
+      #text(size: 0.85em, style: "italic")[
+        _Ideale per: #strong([professionisti]) con setup consolidato_
+      ]
+    ]
+    
+    #v(0.5em)
+    
+    #concept-block("Scegli WEB-BASED se...")[
+      - Vuoi #strong([iniziare subito]) senza installare nulla
+      - Lavori su #underline([più dispositivi])
+      - Fai #strong([prototipazione rapida])
+      - #emph([Insegni]) o #emph([impari]) a programmare
+      - Collabori in #underline([tempo reale]) con altri
+      
+      #v(0.5em)
+      #text(size: 0.85em, style: "italic")[
+        _Ideale per: #strong([learners]), #strong([educatori]), prototipazione_
+      ]
+    ]
+  ],
+  [
+    #concept-block("Scegli IDE NATIVO se...")[
+      - Vuoi la #strong(underline([migliore esperienza AI possibile]))
+      - Vuoi un editor #underline([ottimizzato per AI-first])
+      - Sei disposto a #emph([cambiare workflow])
+      - Non hai bisogno di #strong([tante estensioni])
+      
+      #v(0.5em)
+      #text(size: 0.85em, style: "italic")[
+        _Ideale per: #strong([early adopters]), progetti AI-intensive_
+      ]
+    ]
+    
+    #v(0.5em)
+    
+    #warning-block("⚖️ Considerazioni aggiuntive")[
+      - *Budget*: web spesso #strong([gratis]) come modelli freemium
+      - *Privacy*: plugin/IDE locali #strong([>]) web cloud
+      - *Team*: considera cosa #emph([usa già]) il team
+      - *Progetti*: legacy enterprise → #strong([plugin]), greenfield → #strong([IDE nativi])
+    ]
+  ]
+)
+
 
 = Github Copilot
 == Introduzione
@@ -527,6 +801,40 @@
   ]
 )
 
+== Copilot - Perchè?
+#grid(
+  columns: (0.8fr, 1fr),
+  gutter: 1.5em,
+  align: center,
+  [
+    #figure(image("images/report-github-1.png", width: 100%))
+  ],
+  [
+    #figure(image("images/report-github-2.png", width: 100%))
+  ]
+)
+== Copilot - Perchè?
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1em,
+  align: center,
+  [
+    #figure(image("images/test-quality.png", width: 90%))
+  ],
+  [
+    #figure(image("images/percentage.png", width: 90%))
+  ]
+)
+
+#align(center)[
+  #figure(image("images/line-code-error.png", width: 46%))
+]
+
+== Copilot - Perchè?
+ #figure(image("images/usage.png", width: 80%))
+
+
+
 == Copilot - Modelli d'uso e Prezzi
 
 #grid(
@@ -566,7 +874,6 @@
         - 300 richieste premium
         - GPT-4, Claude
         - Agente coding
-        #text(size: 0.65em, fill: gray)[_Gratis studenti_]
       ]
     ]
   ),
@@ -645,15 +952,41 @@
 )
 
 #align(center)[
-  #text(size: 0.75em, fill: gray, style: "italic")[
+  #text(size: 0.75em, style: "italic")[
     _LLM-agnostic: funziona con diversi modelli (Codex, GPT-4, Claude, o1)_
   ]
 ]
 
 == Copilot - Installazione
+#align(center)[
+  #link(
+    "https://docs.github.com/en/copilot/get-started/quickstart",
+    "https://docs.github.com/en/copilot/get-started/quickstart"
+  )
+]
+#grid(
+  columns: (0.55fr, 1fr),
+  gutter: 1em,
+  align: center,
+  [
+    #figure(image("images/get-start-for-free.png", width: 80%))
+  ],
+  [
+    #figure(image("images/github-result.png", width: 100%))
+  ]
+)
 
 == Copilot - Installazione (VScode)
-
+#concept-block("Installazione su VS Code")[
+  - Come accennato, #strong([Copilot]) è disponibile come estensione per vari IDE.
+  - Noi useremove Visual Studio Code :
+    1. Scarica e installa #link("https://code.visualstudio.com/", "Visual Studio Code")
+    2. Vai su #strong([Extensions]) (`Ctrl+Shift+X`)
+    3. Cerca #strong([GitHub Copilot]) e clicca su #underline([Install])
+    4. Accedi con il tuo account GitHub
+    5. Segui la procedura guidata per attivare la licenza
+  - Dopo l'#underline([installazione]), Copilot è subito pronto all'uso! 
+]
 
 == Copilot (Github)
 
