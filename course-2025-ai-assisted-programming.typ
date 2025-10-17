@@ -53,7 +53,7 @@
       )
     ),
     date: datetime.today().display("20 Ottobre 2025"),
-    institution: [University of Bologna],
+    institution: [Università di Bologna - DISI],
     logo: align(right)[#image("images/disi.svg", width: 55%)],
   ),
 )
@@ -90,7 +90,7 @@
   #align(left)[
     - Cos'è #strong(emph([AI-assisted programming])) e perché è #underline([importante])
     - #strong([Soluzioni e strumenti principali]) (focus su #emph([GitHub Copilot]))
-    - #strong([Demo pratica]) e discussione #underline([funzionalità])
+    - #strong([Demo pratica]) e discussione sulle #underline([funzionalità])
     - #strong([Limiti]), #emph([criticità]) ed #underline([etica]) dell'AI-assisted
   ]
 ]
@@ -190,7 +190,7 @@
   feature-card(
     fa-code(),
     "Generazione",
-    "Da italiano a codice",
+    "Da testo a codice",
     rgb("#d1fae5"), rgb("#ecfdf5"),
     rgb("#10b981"),
     rgb("#059669")
@@ -221,6 +221,71 @@
   )
 )
 
+
+== AI-assisted - Livelli di assistenza
+#figure(image("images/level-of-ai.png", width: 80%))
+
+
+== Livello 1: Code Completion
+#concept-block("L'AI Suggerisce, L'Umano Guida")[
+  - L'AI *completa singole righe o blocchi di codice*
+  - Basato sul *contesto immediato* della scrittura
+  - Lo sviluppatore mantiene il *controllo totale* della direzione
+  - L'AI è un *acceleratore per task ripetitivi*
+]
+
+#example-block("Esempi")[
+  Suggerimenti durante la digitazione, completamento di funzioni standard
+]
+
+== Livello 2: Code Creation
+#concept-block("L'AI Crea, L'Umano Supervisiona")[
+  - L'AI genera *sezioni più ampie di codice*
+  - Può *progettare API e correggere codice esistente*
+  - Richiede *comprensione del codebase e del contesto*
+  - Lo sviluppatore *revisiona e integra* il codice generato
+]
+
+#example-block("Esempi")[
+  Generazione di classi complete, implementazione di pattern architetturali
+]
+
+== Livello 3: Supervised Automation
+#concept-block("L'AI Guida, L'Umano Valida")[
+  - L'AI *gestisce task multipli* per obiettivi più generali
+  - Funziona (idealmente) come un *junior developer autonomo*
+  - Può *correggere bug, aggiungere feature, integrare sistemi*
+  - Richiede *supervisione* ma non controllo continuo
+]
+
+#example-block("Esempi")[
+  Implementazione di feature end-to-end con revisione finale umana
+]
+
+== Livello 4: Full Automation
+#concept-block("L'AI Autonoma, Supervisione Minima - Agentic AI")[
+  - L'AI gestisce *task complessi in completa autonomia*
+  - *Non richiede approvazione umana* per ogni modifica
+  - Opera come un *senior engineer fidato*
+  - *Monitora proattivamente* il codice e risolve problemi
+]
+
+#example-block("Esempi")[
+  Manutenzione continua, ottimizzazioni automatiche, gestione della qualità
+]
+
+== Livello 5: AI-Led Full Autonomy
+#concept-block("AI Autonoma e Strategica")[
+  - L'AI *definisce i propri obiettivi* e strategie
+  - Non segue solo istruzioni, ma *opera su reward function*
+  - *Interagisce con altri agenti AI* in modo indipendente
+  - Scenario *futuristico ma plausibile* dato il progresso attuale
+]
+
+#example-block("Esempi")[
+  Sistemi AI che evolvono autonomamente architetture e strategie di sviluppo
+]
+
 == Che cosa non è l'AI-assisted Programming? (1/5)
 #align(center)[
   #text(size: 1.5em, weight: "bold")[Non è un chatbot generico]
@@ -250,8 +315,8 @@
 
 #concept-block("Caratteristiche")[
   - *Non è* un tool web che genera codice da un prompt e basta (es: "crea una REST API")
-  - *Manca* la visione del tuo progetto: quali librerie usi, come è strutturato il codice, lo stile del team
-  - *Ignora* il contesto: se hai già una classe `User`, potrebbe crearne un'altra incompatibile
+  - *Manca* la visione del tuo progetto: quali librerie usi, com'è strutturato il codice, lo stile del team
+  - *Ignora* il contesto: se hai già una funzione simile, potrebbe non riutilizzarla e scrivere codice duplicato
   - *Genera* codice "generico" che poi devi adattare manualmente al tuo progetto
 ]
 
@@ -349,8 +414,8 @@
   ],
   [
     #concept-block("AI-Assisted")[
-      - ✅ Comprende *semantica e intento*
-      - ✅ Contesto *intero progetto*
+      - ✅ Comprende la *semantica e intento*
+      - ✅ Contesto → *intero progetto*
       - ✅ Genera *implementazioni complete*
       - ✅ *Apprende* da milioni di repository
       
@@ -367,9 +432,8 @@
 
 #concept-block("Caratteristiche")[
   - *Non è* un sistema completamente autonomo che può sviluppare software da solo
-  - *Richiede* supervisione, revisione critica e decisioni umane
+  - *Richiede* la supervisione, revisione critica e decisioni umane
   - *Non comprende* requisiti di business complessi o trade-off architetturali
-  - *Non ha* responsabilità legale o etica sulle decisioni di design
 ]
 
 #align(center)[
@@ -394,70 +458,6 @@
   #text(size: 0.85em, fill: rgb("#666666"))[
     _L'AI-assisted programming richiede comprensione, revisione critica e best practices_
   ]
-]
-
-== AI-assisted - Livelli di assistenza
-#figure(image("images/level-of-ai.png", width: 80%))
-
-
-== Livello 1: Code Completion
-#concept-block("L'AI Suggerisce, L'Umano Guida")[
-  - L'AI *completa singole righe o blocchi di codice*
-  - Basato sul *contesto immediato* della scrittura
-  - Lo sviluppatore mantiene il *controllo totale* della direzione
-  - L'AI è un *acceleratore per task ripetitivi*
-]
-
-#example-block("Esempi")[
-  Suggerimenti durante la digitazione, completamento di funzioni standard
-]
-
-== Livello 2: Code Creation
-#concept-block("L'AI Crea, L'Umano Supervisiona")[
-  - L'AI genera *sezioni più ampie di codice*
-  - Può *progettare API e correggere codice esistente*
-  - Richiede *comprensione del codebase e del contesto*
-  - Lo sviluppatore *revisiona e integra* il codice generato
-]
-
-#example-block("Esempi")[
-  Generazione di classi complete, implementazione di pattern architetturali
-]
-
-== Livello 3: Supervised Automation
-#concept-block("AI Guida, Umano Valida")[
-  - L'AI *gestisce task multipli* per obiettivi più ampi
-  - Funziona come un *junior developer autonomo*
-  - Può *correggere bug, aggiungere feature, integrare sistemi*
-  - Richiede *supervisione* ma non controllo continuo
-]
-
-#example-block("Esempi")[
-  Implementazione di feature end-to-end con revisione finale umana
-]
-
-== Livello 4: Full Automation
-#concept-block("AI Autonoma, Supervisione Minima - Agentic AI")[
-  - L'AI gestisce *task complessi in completa autonomia*
-  - *Non richiede approvazione umana* per ogni modifica
-  - Opera come un *senior engineer fidato*
-  - *Monitora proattivamente* il codice e risolve problemi
-]
-
-#example-block("Esempi")[
-  Manutenzione continua, ottimizzazioni automatiche, gestione della qualità
-]
-
-== Livello 5: AI-Led Full Autonomy
-#concept-block("AI Autonoma e Strategica")[
-  - L'AI *definisce i propri obiettivi* e strategie
-  - Non segue solo istruzioni, ma *opera su reward function*
-  - *Interagisce con altri agenti AI* in modo indipendente
-  - Scenario *futuristico ma plausibile* dato il progresso attuale
-]
-
-#example-block("Esempi")[
-  Sistemi AI che evolvono autonomamente architetture e strategie di sviluppo
 ]
 
 == Sfide, Problemi e Criticità
@@ -777,9 +777,9 @@
       [
         #align(center)[#text(weight: "bold", size: 20pt)[Overview]]
         #v(0.5em)
-        - Advanced AI coding assistant by GitHub/Microsoft
-        - Released 2021, #text(weight: "bold")[20M+ active developers]
-      ]
+        - Assistente AI avanzato per la programmazione di GitHub/Microsoft
+        - Lanciato nel 2021, #text(weight: "bold")[20M+ sviluppatori attivi]
+            ]
     )
   ],
   [
@@ -979,7 +979,7 @@
 == Copilot - Installazione (VScode)
 #concept-block("Installazione su VS Code")[
   - Come accennato, #strong([Copilot]) è disponibile come estensione per vari IDE.
-  - Noi useremove Visual Studio Code :
+  - Noi useremo Visual Studio Code :
     1. Scarica e installa #link("https://code.visualstudio.com/", "Visual Studio Code")
     2. Vai su #strong([Extensions]) (`Ctrl+Shift+X`)
     3. Cerca #strong([GitHub Copilot]) e clicca su #underline([Install])
@@ -988,26 +988,646 @@
   - Dopo l'#underline([installazione]), Copilot è subito pronto all'uso! 
 ]
 
-== Copilot (Github)
+== Demo - requisiti
+#align(left)[
+  #text(size: 1.15em, weight: "bold")[Prerequisiti per la demo:]
+
+  - #strong([Git]) installato
+  - #strong([Python 3.8+]) installato
+  - Scarica il repository: #link("https://github.com/cric96/course-2025-ai-assisted-code")
+  - Installa le dipendenze Python:
+  
+  ```bash
+    pip install -r requirements.txt
+  ```
+]
 
 
-- Cos'è
-- Quando è stato rilasciato
-- Come funziona
-- Claims
-- Come si installa
-- presso
-- Modalità d'uso: autocompletamento
-- Pro e contro
-- Modalità d'uso: chat inline
-- Pro e contro
-- Modalità d'uso: chat
-- Pro e contro
-- modalità di uso: agentic
-- Pro e contro
+== Copilot - Livello 0 (Autocompletamento di base)
+- #strong([Copilot]) fornisce #emph([suggerimenti di codice in tempo reale]) mentre digiti.
+- Basato sul #strong([contesto immediato]) del file.
+- #emph([Prima feature introdotta nel 2021.])
+- #strong([Pro:]) velocizza la scrittura di codice #emph([boilerplate]) e routine comuni.
+- #bold([Contro:]) limitato al #emph([contesto locale]), non (sempre) comprende l'#emph([intero progetto]).
+#figure(image("images/autocomplete.png", width: 80%))
 
-== Demo Copilot
+== Copilot - Livello 0 (alcune funzionalità)
+- Puoi #strong([accettare]) il suggerimento con `Tab`
+  - O parzialmente con `Ctrl+Right`
+- È possibile #strong([scartare]) con `Esc` o continuando a scrivere
+- #strong([Vedere alternative]) con `F1` → `GitHub Copilot: Open Completions Panel`
+#figure(image("images/alternatives.png", width: 50%))
 
-== Limitazioni e Criticità
+== Copilot - Livello 0 (Cambiare modello)
+- Copilot nasce con Codex (basato su GPT-3)
+- Ora è #underline[model-agnostic]: puoi scegliere tra vari modelli LLM
+  - GPT-4.1, GPT-5 (mini)
+  - Claude (Anthropic)
+- Alcuni modelli sono #strong([premium]) (Pro+)
+- Cambia modello con `F1` → `GitHub Copilot: Select AI Model`
+- Ad oggi, `gpt-41-copilot` è l'unico disponibile per utenti free
+
+// Slide 1: Introduzione al Compito
+== Livello 0 - Compito: Introduzione
+
+#concept-block("Obiettivo")[
+  - Andate nella folder #strong([level-0])
+  - Aprite il file #raw("`main.py`")
+  - Trovate una descrizione in linguaggio naturale di cosa fare
+  - Il sistema deve #strong([visualizzare le entrate e uscite di un conto bancario]) e #strong([categorizzarle])
+]
+
+#note-block("Cosa fare")[
+  - Alcune funzioni sono #strong([incomplete])
+  - Usate #strong([Copilot]) per completarle
+  - Provate a #emph([togliere tutte le funzioni]) e osservate cosa succede
+]
+
+== Livello 0 - Compito: Discussione
+
+#note-block("Domande")[
+  - In quanti siete riusciti a completare tutto?
+  - Cosa succede se togliete tutte le funzioni?
+  - Copilot riesce a ricostruire la logica?
+]
+
+#v(1em)
+
+#warning-block("Suggerimento")[
+  #emph([Sperimentate!]) Provate a cambiare i commenti o aggiungere dettagli per vedere come Copilot si adatta.
+]
+
+== Copilot - Livello 1 (inline chat)
+- Puoi scrivere #strong([commenti in linguaggio naturale]) per descrivere cosa vuoi fare.
+- #strong([Copilot genera il codice corrispondente]) in tempo reale.
+- Sono disponibili anche #emph([comandi preimpostati]) (via prompt engineering) per azioni rapide.
+- Opera sul #strong([contesto locale del file]) ma usa può usare il contesto del progetto.
+#figure(image("images/level-1.png", width: 70%))
+
+
+== Copilot - Livello 1 (inline chat)
+- Ad ogni generazione, Copilot offre diverse opzioni di interazione:
+  - #strong([Accettare]) il suggerimento con `Tab`
+  - #strong([Scartare]) con `Esc` o continuando a scrivere
+  - #strong([Rigenerare]) una soluzione alternativa (tramite l'icona di refresh)
+  - Scrivere follow-up in linguaggio naturale per #strong([modificare]) il suggerimento
+- È possibile #strong([limitare il contesto]) selezionando una porzione di testo e premendo `Shift` + frecce su/giù, per ottenere suggerimenti più mirati.
+- È possibile cambiare il modello usato per #underline[ogni] suggerimento.
+#figure(image("images/llms.png", width: 70%))
+
+== Copilot - Livello 1 (Comandi)
+- Copilot include una serie di #strong([comandi predefiniti]) per operazioni comuni.
+- `/doc` → genera documentazione per la funzione selezionata.
+- `/tests` → crea test unitari per la funzione selezionata.
+- `/explain` → spiega il codice selezionato in linguaggio naturale.
+- `/fix` → corregge errori comuni nel codice selezionato.
+
+// put a note block here
+#note-block("Nota")[
+  - I comandi funzionano solo se #strong([selezioni del codice]) prima
+  - Alcuni comandi potrebbero non funzionare in tutti i linguaggi
+  - Di fatto, non sono altro che prompt predefiniti
+  - Altri esempi: #link(
+    "https://docs.github.com/en/copilot/tutorials/copilot-chat-cookbook"
+  )
+]
+
+== Copilot - Se volessi cambiare lo stile?
+- Spesso i team adottano #strong([linee guida di stile]) precise per il codice.
+  - Ad esempio, l'uso di tool come `black`, `prettier`, `eslint` per la formattazione automatica.
+- Puoi #strong([chiedere a Copilot]) di rispettare queste regole direttamente nei prompt.
+- Esempi pratici:
+  - `# Format this code according to PEP8 guidelines`
+  - `# Use prettier to format this JavaScript code`
+- Copilot tenterà di #strong([adattare le sue risposte]) alle tue richieste di stile (zero-shot learning).
+- Per applicare uno stile di progetto a tutto il codebase, puoi aggiungere un file `github-instructions.md` nella root del progetto con le regole desiderate.
+
+== Copilot - Livello 1 (Demo)
+Su `level-1` useremo Copilot sfruttando `inline-chat`.
+1. *Generazione guidata con chat inline* (`Ctrl+I`):
+     - Descrivi l'obiettivo generale e genera il programma completo
+     - Itera e correggi errori usando la chat
+  
+  2. *Comandi predefiniti su `kanban`*:
+     - `/explain` → comprendi il codice esistente
+     - `/doc` → genera documentazione per classi in `models`
+     - `/test` → crea test per `Project`
+     - `/fix` → correggi test falliti
+     - Refactoring del main via chat
+  
+  3. *Personalizzazione stile con `.github/copilot-instructions.md`*:
+     - Genera `draw_flower.py` prima e dopo le istruzioni custom
+     - Osserva come cambiano stile, librerie e struttura del codice
+
+== Livello 1 - Discussione post-demo
+
+#warning-block("Domande aperte")[
+  - Quali modelli hanno funzionato meglio per quali task?
+  - Il codice generato era direttamente utilizzabile o ha richiesto modifiche?
+  - Come è cambiato lo stile del codice con `.github/copilot-instructions.md`?
+  - Avete incontrato #strong([allucinazioni]) o suggerimenti errati?
+  - Quanto è stato difficile #underline([validare]) il codice generato?
+]
+
+== Copilot = Livello 1.1 (Chat Completa)
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1em,
+  [
+    - Copilot include una #strong([chat completa]) per interazioni più complesse.
+    - Si apre con `F1` → `GitHub Copilot: Open Chat`
+    - Puoi #strong([fare domande]), #strong([chiedere spiegazioni])
+    - La chat comprende il #underline([contesto del progetto])
+    - Supporta #emph([conversazioni multi-turno])
+  ],
+  [
+    #figure(image("images/full-chat.png", width: 90%))
+  ]
+)
+
+== Chat Completa - Gestione del Contesto
+
+#concept-block("Come Copilot gestisce il contesto")[
+  *Contesto Implicito (automatico)*:
+  - Testo selezionato nell'editor attivo
+  - Nome del file o notebook corrente
+  - File attivo incluso automaticamente in #strong([ask mode]) / #strong([edit mode])
+  - In #strong([agent mode]), gli strumenti decidono autonomamente quale contesto aggiungere
+    - Ne parleremo meglio dopo e nella prossima lezione
+]
+
+== Chat Completa - \#-mentions
+
+#text(size: 0.9em)[
+  #concept-block("Riferimenti espliciti con #")[
+    - Scrivi `#` nella chat per vedere i contesti disponibili
+    - #strong([\#file]) / #strong([\#folder]) → aggiungi file/cartelle specifiche
+    - #strong([\#symbol]) → riferisci simboli del codice (classi, funzioni)
+    - #strong([\#changes]) → diffs dei file modificati
+    - #strong([\#codebase]) → ricerca semantica nell'intero workspace
+    - #strong([\#fetch:<url>]) → recupera contenuti da una pagina web
+  ]
+]
+
+== Chat Completa - \#-mentions
+
+#text(size: 0.85em)[
+  #example-block("Esempi di #-mentions")[
+    ```
+    Explain how authentication works in #codebase
+    
+    Where is the database connection string configured? #codebase
+    
+    What are the highlights of VS Code 1.100 #fetch https://code.visualstudio.com/updates/v1_100
+    
+    How does routing work in next.js #githubRepo vercel/next.js
+    
+    Update the asp.net app to .net 9 #fetch https://learn.microsoft.com/en-us/aspnet/core/migration/80-90
+    ```
+  ]
+]
+
+== Chat Completa - Aggiungere File come Contesto
+
+#text(size: 0.8em)[
+  #concept-block("Modi per aggiungere file alla chat")[
+    *Tre metodi disponibili*:
+    
+    1. *\#-mention*: scrivi `#` + nome del file/cartella/simbolo
+       - Per simboli, apri prima il file che li contiene
+    2. *Drag & Drop*: trascina file/cartelle da Explorer/Search/Editor nella Chat
+    
+    3. *Add Context button*: usa il pulsante nella Chat view
+       - Seleziona _Files & Folders_ o _Symbols_
+  ]
+]
+
+#text(size: 0.8em)[
+  #note-block("Dimensioni del contesto")[
+    - Se possibile, viene incluso il #strong([file completo])
+    - Se troppo grande, viene incluso un #underline([outline]) (funzioni senza implementazione)
+    - Se anche l'outline è troppo grande, il file #emph([non viene incluso])
+  ]
+]
+
+
+== Chat Completa - Cronologia Conversazioni
+
+#text(size: 0.9em)[
+  #concept-block("Multi-turn Conversations")[
+    - La chat in VS Code è progettata per #strong([conversazioni multi-turno])
+    - La #underline([cronologia]) viene usata come contesto per i prompt successivi
+    - Puoi fare #emph([domande di follow-up]) senza ripetere il contesto
+    - Per iniziare un nuovo argomento: usa il pulsante #strong([New Chat]) (`+`) o `Ctrl+N`
+    - Utile per evitare che il contesto precedente influenzi la nuova richiesta
+  ]
+]
+
+#v(0.8em)
+
+#text(size: 0.85em)[
+  #note-block("Best Practice")[
+    - Mantieni conversazioni separate per #strong([argomenti diversi])
+    - Inizia una nuova chat quando cambi completamente contesto
+    - Usa la cronologia per #underline([iterazioni incrementali]) sullo stesso problema
+  ]
+]
+
+== Copilot - Livello 1 (Prompt engineering)
+
+#align(center)[
+  #text(size: 1.2em, weight: "bold")[Come scrivere prompt efficaci per Copilot Chat]
+]
+
+#v(1em)
+
+#text(size: 0.9em)[
+  #concept-block("Obiettivo")[
+    Applicare strategie di #strong([prompt engineering]) per ottenere risposte #underline([migliori]), #underline([più precise]) e #underline([più utili]) da GitHub Copilot Chat.
+  ]
+]
+
+#text(size: 0.9em)[
+  #note-block("Cosa vedremo")[
+    - 8 consigli pratici per scrivere prompt efficaci
+    - Esempi concreti e best practices
+  ]
+]
+
+
+== Consiglio 1 — Parti generale, poi dettaglia
+
+#text(size: 0.9em)[
+  #concept-block("Strategia: Top-Down")[
+    1. Inizia con una #strong([descrizione ampia]) dell'obiettivo
+    2. Poi aggiungi i #underline([requisiti specifici]) uno alla volta
+    3. Questo aiuta l'AI a capire il #emph([contesto generale]) prima dei dettagli
+  ]
+]
+
+#text(size: 0.9em)[
+  #example-block("Esempio: Funzione Numero Primo")[
+    ```
+    Write a JavaScript function that tells me if a number is prime
+    
+    The function should take an integer and return true if the integer is prime
+    
+    The function should error if the input is not a positive integer
+    ```
+  ]
+]
+
+
+== Consiglio 2 — Fornisci esempi
+
+#text(size: 0.8em)[
+  #concept-block("Strategia: Few-Shot Learning")[
+    - Fornisci #strong([esempi concreti]) di input/output attesi
+    - Mostra #underline([casi d'uso reali])
+    - I #emph([test unitari]) sono ottimi esempi: chiedi prima i test, poi l'implementazione
+  ]
+]
+
+
+#text(size: 0.8em)[
+  #example-block("Esempio: Estrazione Date")[
+    ```
+    Write a function that extracts dates from a string
+    
+    Example:
+    findDates("I have a dentist appointment on 11/14/2023 and book club on 12-1-23")
+    
+    Returns: ["11/14/2023", "12-1-23"]
+    ```
+  ]
+]
+
+
+== Consiglio 3 — Spezza i task complessi
+
+#text(size: 0.9em)[
+  #concept-block("Strategia: Divide et Impera")[
+    - Suddividi #strong([compiti grandi]) in #underline([sotto-task più piccoli])
+    - Chiedi a Copilot di risolvere #emph([un problema alla volta])
+    - Poi combina le soluzioni in un sistema finale
+  ]
+]
+
+
+#text(size: 0.9em)[
+  #example-block("Esempio: Word Search Game")[
+    #grid(
+      columns: (1fr, 1fr),
+      gutter: 1em,
+      [
+        #text(weight: "bold", fill: rgb("#dc2626"))[❌ Troppo complesso]
+        ```
+        Crea un gioco word search
+        completo con UI e logica
+        ```
+      ],
+      [
+        #text(weight: "bold", fill: rgb("#16a34a"))[✅ Suddiviso]
+        ```
+        1. Genera una griglia NxN
+        2. Inserisci parole nella griglia
+        3. Funzione per cercare parole
+        4. Combina tutto
+        ```
+      ]
+    )
+  ]
+]
+
+== Consiglio 4 — Evita ambiguità
+
+#text(size: 0.9em)[
+  #concept-block("Strategia: Sii Esplicito")[
+    - Usa #strong([nomi e riferimenti chiari])
+    - Evita pronomi vaghi (#emph(["questo"]), #emph(["quello"]), #emph(["esso"]))
+    - Specifica #underline([librerie]) e #underline([versioni]) se rilevanti
+    - Definisci termini tecnici se poco comuni
+  ]
+]
+
+#text(size: 0.9em)[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 1em,
+    [
+      #text(weight: "bold", fill: rgb("#dc2626"))[❌ Ambiguo]
+      #v(0.3em)
+      _"Aggiungi questo alla funzione"_
+      
+      _"Usa quella libreria per fare questo"_
+      
+      _"Implementa il pattern standard"_
+    ],
+    [
+      #text(weight: "bold", fill: rgb("#16a34a"))[✅ Esplicito]
+      #v(0.3em)
+      _"Aggiungi la gestione errori a `validateEmail()`"_
+      
+      _"Usa `pandas` per leggere il CSV"_
+      
+      _"Implementa il pattern Singleton"_
+    ]
+  )
+]
+
+== Consiglio 5 — Indica il codice rilevante
+
+#text(size: 0.8em)[
+  #concept-block("Strategia: Fornisci Contesto")[
+    - Apri i #strong([file rilevanti]) nell'IDE prima di chiedere
+    - #underline([Evidenzia il codice]) che vuoi che Copilot consideri
+    - Usa tag speciali in Copilot Chat:
+      - `@workspace` → contesto dell'intero progetto
+      - `#file:nome.py` → riferimento a file specifico
+      - `#selection` → codice selezionato
+  ]
+]
+
+#text(size: 0.8em)[
+  #example-block("Esempio con Tag")[
+    ```
+    @workspace How does authentication work in this project?
+    #file:auth.py Refactor the login function to use async/await
+    #selection Add error handling to this code block
+    ```
+  ]
+]
+
+== Consiglio 6 — Sperimenta e itera
+
+#text(size: 0.8em)[
+  #concept-block("Strategia: Approccio Iterativo")[
+    - La prima risposta #strong([non è sempre perfetta])
+    - #underline([Modifica il prompt]) e riprova
+    - Nella chat, #emph([riferisciti alla risposta precedente]):
+      - _"Rigenera usando async/await"_
+      - _"Aggiungi type hints alla soluzione precedente"_
+      - _"Semplifica il codice che hai generato"_
+  ]
+]
+
+
+#text(size: 0.9em)[
+  #note-block("Pro Tip")[
+    Copilot mantiene la #strong([cronologia della conversazione]). Puoi costruire soluzioni complesse #underline([incrementalmente]) attraverso iterazioni successive.
+  ]
+]
+
+== Consiglio 7 — Mantieni la cronologia rilevante
+
+#text(size: 0.9em)[
+  #concept-block("Strategia: Gestione Contesto")[
+    - Usa #strong([thread separati]) per task differenti
+    - #underline([Cancella messaggi irrilevanti]) per evitare confusione
+    - Troppo contesto non correlato può #emph([degradare la qualità]) delle risposte
+    - Inizia una #strong([nuova conversazione]) per topic completamente nuovi
+  ]
+]
+
+
+#text(size: 0.9em)[
+  #warning-block("Attenzione")[
+    Se Copilot inizia a dare risposte #underline([inconsistenti]) o #underline([fuori topic]), probabilmente la cronologia è troppo lunga o mescolata. #strong([Pulisci e riparti!])
+  ]
+]
+
+== Consiglio 8 — Segui le buone pratiche di codice
+
+#text(size: 0.9em)[
+  #concept-block("Strategia: Qualità del Codebase")[
+    Copilot funziona #strong([meglio]) se il tuo codice è già #underline([leggibile]) e #underline([ben strutturato]):
+    
+    - #fa-check() #strong([Nomi variabili chiari]) e descrittivi
+    - #fa-check() #strong([Stile coerente]) nel progetto
+    - #fa-check() #strong([Commenti utili]) per logica complessa
+    - #fa-check() #strong([Test unitari]) come documentazione
+  ]
+]
+
+
+#text(size: 0.9em)[
+  #note-block("Importante")[
+    Se il codebase è disordinato, chiedi a Copilot stesso:
+    - _"Aggiungi commenti esplicativi a questa funzione"_
+    - _"Refactoring di questo codice per migliorare leggibilità"_
+  ]
+]
+
+== Prompt engineering — Anatomia di un prompt efficace
+
+#text(size: 0.8em)[
+  #concept-block("Il Framework Input-Processo-Output")[
+    #grid(
+      columns: (1fr, 1fr, 1fr),
+      gutter: 1em,
+      [
+        #text(weight: "bold", size: 0.95em)[📥 Input]
+        - Obiettivo chiaro
+        - Requisiti funzionali
+        - Esempi input/output
+        - File rilevanti
+        - Vincoli tecnici
+      ],
+      [
+        #text(weight: "bold", size: 0.95em)[⚙️ Processo]
+        - Linguaggio/framework
+        - Stile di codice
+        - Pattern da usare
+        - Best practices
+        - Gestione errori
+      ],
+      [
+        #text(weight: "bold", size: 0.95em)[📤 Output]
+        - Implementazione funzionante
+        - Test unitari (opzionale)
+        - Documentazione
+        - Note su limitazioni
+        - Suggerimenti uso
+      ]
+    )
+  ]
+]
+
+
+#text(size: 0.8em)[
+  #warning-block("Error Modes da Considerare")[
+    - Input non valido o malformato
+    - Dipendenze mancanti o versioni incompatibili  
+    - Ambiguità nei requisiti
+    - Edge cases non gestiti
+  ]
+]
+
+== Esempi di prompt completi e ben strutturati
+
+#text(size: 0.9em)[
+  #example-block("Esempio 1: Testing")[
+    ```
+    Scrivi una funzione Python che valida un indirizzo email usando regex.
+    
+    Requisiti:
+    - Supporta email standard (user@domain.com)
+    - Gestisci sottodomini (user@mail.company.com)
+    - Restituisci True/False
+    - Solleva ValueError per input non stringa
+    
+    Includi 6 test unitari con pytest che coprano casi validi, invalidi ed edge cases.
+    ```
+  ]
+]
+
+#v(1em)
+
+#text(size: 0.9em)[
+  #example-block("Esempio 2: Documentazione")[
+    ```
+    #file:orders.py
+    Genera documentazione completa per la funzione process_orders():
+    - Docstring con parametri, return value, eccezioni
+    - Sezione README.md con esempi d'uso
+    - Note su performance e limitazioni
+    ```
+  ]
+]
+
+== Prompt engineering — Quick reference
+
+#text(size: 0.9em)[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 1em,
+    [
+      #concept-block("✅ DO")[
+        - Generale → dettagliato
+        - Fornisci 2-3 esempi concreti
+        - Spezza task complessi
+        - Usa nomi espliciti
+        - Indica file/codice rilevanti
+        - Itera e raffina
+        - Mantieni il contesto pulito
+        - Il codice deve essere leggibile
+      ]
+    ],
+    [
+      #warning-block("❌ DON'T")[
+        - Prompt vaghi o troppo brevi
+        - Mancanza di esempi
+        - Task monolitici troppo grandi
+        - Pronomi ambigui
+        - Ignorare il contesto
+        - Aspettarsi perfezione al primo colpo
+        - Cronologia chat disordinata
+        - Codebase caotico
+      ]
+    ]
+  )
+]
+
+== Note finali — Prompt engineering come skill
+
+#align(center)[
+  #text(size: 1.3em, weight: "bold")[
+    Il prompt engineering è una #strong([competenza]) che si #underline([affina con la pratica])
+  ]
+]
+
+#v(2em)
+
+#align(center)[
+  #grid(
+    columns: (1fr, 1fr, 1fr),
+    gutter: 1.5em,
+    [
+      #align(center)[
+        #text(size: 2.5em)[🎯]
+        #v(0.3em)
+        #text(size: 0.9em, weight: "bold")[Sii Conciso ma Completo]
+        #v(0.3em)
+        #text(size: 0.8em)[
+          Prompt brevi ma con tutte le info necessarie
+        ]
+      ]
+    ],
+    [
+      #align(center)[
+        #text(size: 2.5em)[🧠]
+        #v(0.3em)
+        #text(size: 0.9em, weight: "bold")[Fornisci Contesto]
+        #v(0.3em)
+        #text(size: 0.8em)[
+          Più contesto = risposte più precise
+        ]
+      ]
+    ],
+    [
+      #align(center)[
+        #text(size: 2.5em)[🔍]
+        #v(0.3em)
+        #text(size: 0.9em, weight: "bold")[Valuta Criticamente]
+        #v(0.3em)
+        #text(size: 0.8em)[
+          Verifica sempre il codice generato
+        ]
+      ]
+    ]
+  )
+]
+
+
+
+== Copilot - Livello 2 (Modalità Agente)
+- Con i tool precendenti, la chat è reattiva
+- La modalità agente è #strong([proattiva])
+- Può #strong([eseguire comandi]) autonomamente
+- Può #strong([navigare il codebase]) da sola
+- Può #strong([usare strumenti esterni]) (terminal, web search, ecc.)
+  - Vedremo meglio cosa sono gli agenti nella prossima lezione
+- La chat di progetto permette di interagire con l'intero codebase/file selezionati
+
 
 = Conclusioni
