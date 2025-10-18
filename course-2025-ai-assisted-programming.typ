@@ -1849,8 +1849,391 @@ Su `level-1` useremo Copilot sfruttando `inline-chat`.
 - Sono concetti collegati ad agentic AI
 - Li vedremo più in dettaglio nella prossima lezione
 
+= Context Engineering
+
+== Context Engineering - Introduzione
+
+#align(center)[
+  #text(size: 1.2em, weight: "bold")[Come fornire il giusto contesto all'AI]
+]
+
+#v(0.5em)
+
+#definition-block("Context Engineering")[
+  È un approccio sistematico per fornire agli agenti AI informazioni mirate sul progetto, migliorando la qualità e l'accuratezza del codice generato.
+]
+
+#v(0.5em)
+
+#text(size: 0.85em)[
+  #concept-block("Perché è importante")[
+    #grid(
+      columns: (1fr, 1fr),
+      gutter: 1em,
+      [
+        *Senza Context Engineering*
+        - L'AI genera codice generico
+        - Non rispetta convenzioni progetto
+        - Ignora architettura esistente
+        - Suggerimenti inconsistenti
+      ],
+      [
+        *Con Context Engineering*
+        - Codice allineato al progetto
+        - Rispetta pattern e convenzioni
+        - Decisioni architetturali coerenti
+        - Conoscenza persistente
+      ]
+    )
+  ]
+]
+
+== Context Engineering - Workflow
+
+#text(size: 0.75em)[
+  #concept-block("Asserzione Chiave")[
+    #align(center)[
+      #text(size: 0.95em, style: "italic")[
+        _"Il contesto è il ponte tra l'intento del programmatore e l'azione dell'AI. Senza contesto curato, l'AI genera soluzioni generiche; con contesto mirato, diventa un collaboratore che comprende il progetto."_
+      ]
+    ]
+  ]
+]
+
+#let ce-box(emoji, label, fill-color, stroke-color, width: 140pt, height: 80pt) = {
+  box(
+    fill: fill-color,
+    stroke: 2pt + stroke-color,
+    radius: 5pt,
+    inset: 8pt,
+    width: width,
+    height: height,
+    [#align(center + horizon)[#text(size: 0.7em, weight: "bold")[#emoji\ #label]]]
+  )
+}
+
+#let ce-arrow = [#text(size: 1.5em)[→]]
+#let ce-arrow-down = [#text(size: 1.5em)[↓]]
+
+#align(center)[
+  #grid(
+    columns: (auto, auto, auto, auto, auto),
+    gutter: 10pt,
+    align: center + horizon,
+    
+    ce-box("📚", [Curate\ Project Context], rgb("#e0e7ff"), rgb("#6366f1")),
+    ce-arrow,
+    ce-box("📝", [Generate\ Implementation\ Plan], rgb("#f3e8ff"), rgb("#a855f7")),
+    ce-arrow,
+    ce-box("💻", [Generate\ Implementation\ Code], rgb("#d1fae5"), rgb("#10b981")),
+  )
+]
+
+#align(center)[
+  #ce-arrow-down
+  #v(0.2em)
+  #box(
+    fill: rgb("#fef3c7"),
+    stroke: 2pt + rgb("#f59e0b"),
+    radius: 5pt,
+    inset: 10pt,
+    width: 500pt,
+    [#align(center)[#text(size: 0.7em, weight: "bold")[🔄 Feedback Loop: Itera, Raffina, Migliora]]]
+  )
+  #v(0.2em)
+]
+
+== Context Engineering - Step 1: Project Context
+
+#text(size: 0.75em)[
+  #concept-block("Documentazione Chiave")[
+    Crea file Markdown nella repository per documentare aspetti critici:
+    
+    #grid(
+      columns: (1fr, 1fr, 1fr),
+      gutter: 0.8em,
+      [
+        *ARCHITECTURE.md*
+        - Architettura generale
+        - Design patterns
+        - Principi di design
+        - Dipendenze chiave
+      ],
+      [
+        *PRODUCT.md*
+        - Visione prodotto
+        - Obiettivi business
+        - Funzionalità core
+        - User personas
+      ],
+      [
+        *CONTRIBUTING.md*
+        - Linee guida sviluppo
+        - Code style
+        - Best practices
+        - Workflow collaborativo
+      ]
+    )
+  ]
+]
+
+#v(0.5em)
+
+#text(size: 0.7em)[
+  #note-block("Perché funziona")[
+    L'AI *potrebbe* trovare queste info nel codebase, ma sono sparse in commenti e file multipli. Un summary conciso assicura che il contesto critico sia sempre disponibile.
+  ]
+]
+
+== Context Engineering - Step 1: Esempio
+
+#text(size: 0.75em)[
+  #example-block("`.github/copilot-instructions.md`")[
+    ```markdown
+    # [Project Name] Guidelines
+    
+    * [Product Vision](../PRODUCT.md): High-level vision and objectives
+    * [Architecture](../ARCHITECTURE.md): System design and patterns
+    * [Contributing](../CONTRIBUTING.md): Developer guidelines
+    
+    Suggest updates to these docs if you find gaps or conflicts.
+    ```
+  ]
+]
+
+#v(0.5em)
+
+#text(size: 0.7em)[
+  #note-block("Pro Tip")[
+    - *Start small*: contesto conciso, solo info più critiche
+    - *Focus on high-level*: architettura e principi, non dettagli implementativi
+    - *Living document*: aggiorna quando AI fa errori ripetuti
+    - Se hai codebase esistente, usa AI per generare questi file (poi revisiona!)
+  ]
+]
+
+== Context Engineering - Step 2: Implementation Plan
+
+#text(size: 0.75em)[
+  #concept-block("Planning Persona con Chat Mode")[
+    Crea un processo iterativo per generare piani di implementazione:
+    
+    #grid(
+      columns: (1fr, 1fr),
+      gutter: 1em,
+      [
+        *Chat Mode Dedicato*
+        - `.github/chatmodes/plan.chatmode.md`
+        - Persona specializzata in planning
+        - Tool specifici (fetch, search, usages)
+        - No implementazione, solo pianificazione
+      ],
+      [
+        *Plan Template*
+        - `plan-template.md` per struttura consistente
+        - Metadata (titolo, data, versione)
+        - Architecture & design
+        - Task breakdown (checklist)
+        - Open questions
+      ]
+    )
+  ]
+]
+
+#v(0.5em)
+
+#text(size: 0.7em)[
+  #note-block("Workflow")[
+    1. Analizza requisiti e contesto codebase
+    2. Struttura piano usando template
+    3. Pausa per review e feedback iterativo
+  ]
+]
+
+== Context Engineering - Step 2: Esempio Chat Mode
+
+#text(size: 0.5em)[
+  #example-block("`.github/chatmodes/plan.chatmode.md`")[
+    ```markdown
+    ---
+    description: 'Architect and planner for implementation plans.'
+    tools: ['fetch', 'githubRepo', 'search', 'usages']
+    ---
+    # Planning Mode
+    
+    You are an architect creating detailed implementation plans.
+    
+    ## Workflow
+    1. Analyze and understand: gather context from codebase
+    2. Structure the plan: use [plan-template.md](plan-template.md)
+    3. Pause for review: iterate based on feedback
+    ```
+  ]
+]
+
+
+#text(size: 0.7em)[
+  #example-block("Uso")[
+    - Seleziona `plan` mode nella Chat view
+    - Prompt: `Add user authentication with email and password`
+    - Oppure: `Implement feature from issue #43` (fetch automatico issue)
+  ]
+]
+
+== Context Engineering - Step 2: Plan Template
+
+#text(size: 0.7em)[
+  #example-block("`plan-template.md` - Struttura")[
+    ```markdown
+    ---
+    title: [Short descriptive title]
+    date_created: [YYYY-MM-DD]
+    last_updated: [YYYY-MM-DD]
+    ---
+    # Implementation Plan: <feature>
+    [Brief description of requirements and goals]
+    
+    ## Architecture and design
+    Describe high-level architecture and design considerations.
+    
+    ## Tasks
+    - [ ] Task 1: Description
+    - [ ] Task 2: Description
+    
+    ## Open questions
+    1. Question needing clarification
+    2. Another open question
+    ```
+  ]
+]
+
+== Context Engineering - Step 3: Implementation
+
+#text(size: 0.75em)[
+  #concept-block("Da Piano a Codice")[
+    #grid(
+      columns: (1fr, 1fr),
+      gutter: 1em,
+      [
+        *Task Piccoli*
+        - Prompt diretto con il piano
+        - `implement #<my-plan>.md`
+        - Iterazione veloce in chat
+        - Review manuale del codice
+      ],
+      [
+        *Task Complessi*
+        - Usa *Agent Mode*
+        - Salva piano su file o GitHub issue
+        - Multi-step execution autonoma
+        - Testing e validazione automatica
+      ]
+    )
+  ]
+]
+
+#v(0.5em)
+
+#text(size: 0.7em)[
+  #note-block("Pro Tip")[
+    - Agent Mode è ottimizzato per task multi-step
+    - Basta fornire il plan file: `implement #<my-plan>.md`
+    - L'agent pianifica autonomamente come raggiungere l'obiettivo
+    - Per fresh perspective: nuova chat → chiedi review del codice vs piano
+  ]
+]
+
+== Context Engineering - Step 3: Esempio TDD Mode
+
+#text(size: 0.7em)[
+  #example-block("`.github/chatmodes/tdd.chatmode.md`")[
+    ```markdown
+    ---
+    description: 'Execute plan as test-driven developer.'
+    ---
+    # TDD Implementation Mode
+    Expert TDD developer generating tested, maintainable code.
+    
+    ## Test-driven development
+    1. Write/update tests first to encode acceptance criteria
+    2. Implement minimal code to satisfy test requirements
+    3. Run targeted tests immediately after each change
+    4. Run full test suite to catch regressions
+    5. Refactor while keeping all tests green
+    
+    ## Core principles
+    * Incremental Progress: small, safe steps
+    * Test-Driven: tests guide and validate behavior
+    * Quality Focus: follow existing patterns
+    ```
+  ]
+]
+
+== Context Engineering - Best Practices
+
+#text(size: 0.7em)[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 1em,
+    align: top,
+    [
+      #concept-block("✅ DO")[
+        - *Start small*: contesto minimo, poi itera
+        - *Keep fresh*: aggiorna docs regolarmente
+        - *Progressive context*: high-level → dettagli
+        - *Separate concerns*: chat diverse per task diversi
+        - *Living documents*: raffina in base a errori
+        - *Version control*: traccia modifiche al setup
+      ]
+    ],
+    [
+      #warning-block("❌ DON'T")[
+        - *Context dumping*: troppo info non focalizzata
+        - *Inconsistent guidance*: docs contrastanti
+        - *No validation*: assumere che AI capisca
+        - *One-size-fits-all*: stessa config per tutti
+        - *Stale context*: docs obsoleti
+        - *No feedback loops*: non validare comprensione
+      ]
+    ]
+  )
+]
+
+== Context Engineering - Metriche di Successo
+
+#text(size: 0.75em)[
+  #concept-block("Come misurare l'efficacia")[
+    Un setup efficace di context engineering produce:
+
+    - #text(fill: rgb("#16a34a"))[✓] *Reduced back-and-forth*: meno correzioni necessarie
+    - #text(fill: rgb("#16a34a"))[✓] *Consistent code quality*: pattern e convenzioni rispettati
+    - #text(fill: rgb("#16a34a"))[✓] *Faster implementation*: meno tempo a spiegare contesto
+    - #text(fill: rgb("#16a34a"))[✓] *Better decisions*: soluzioni allineate a obiettivi progetto
+  ]
+]
+
+
+#text(size: 0.7em)[
+  #note-block("Scaling")[
+    - *Team*: condividi setup via git, stabilisci convenzioni
+    - *Large projects*: gerarchia di contesto (project-wide, module-specific, feature-specific)
+    - *Long-term*: cicli di review regolari per docs
+    - *Multiple projects*: template riutilizzabili
+  ]
+]
+
 == Copilot - Github
-- Copilot è anche per github
+- Copilot si integra perfettamente con #strong([GitHub])
+- Puoi usare Copilot Chat direttamente su #strong([GitHub Codespaces])
+- Puoi usare Copilot in #strong([Pull Requests]) per:
+  - Generare descrizioni PR
+  - Suggerire modifiche al codice
+  - Creare test automatici per le PR
+- Puoi usare Copilot in #strong([Issues]) per:
+  - Riassumere discussioni
+  - Suggerire soluzioni
+  - Generare template per bug report
+
 
 == Copilot - Possibilità di Estensioni
 - Abbiamo visto che Copilot supporta vari modelli LLM
