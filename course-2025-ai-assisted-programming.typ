@@ -117,8 +117,8 @@
     #text(size: 0.9em)[
       - *Ricerca*: Collective AI, Apprendimento Multi-Agente, Sistemi Auto-Organizzanti
       - *Focus*: LLMs, Sintesi di Programmi, Sviluppo Assistito da AI
-      - *Didattica*: Advanced System Design and Modelling (ASDM), Paradigmi di Programmazione
-      - *Progetti*: Core developer di [ScaFi](http://scafi.github.io/) (programmazione aggregata in Scala)
+      - *Didattica*: Advanced System Design and Modelling (ASDM), Paradigmi di Programmazione e Sviluppo 
+     
     ]
 
 
@@ -220,6 +220,186 @@
     rgb("#ea580c")
   )
 )
+
+== AI-assisted - Anatomia delle Soluzioni
+#align(center)[
+  #text(size: 1.2em, weight: "bold")[Componenti fondamentali di un tool AI-assisted]
+]
+
+#v(0.5em)
+
+#grid(
+  columns: (1fr, 1fr, 1fr),
+  gutter: 1em,
+  align: top,
+  [
+    #text(size: 0.8em)[
+      #concept-block("1. Editor/IDE")[
+        - Ambiente di sviluppo
+        - Contesto locale
+        - UI per suggerimenti
+        - Feedback real-time
+        
+        #v(0.2em)
+        #text(size: 0.7em, fill: gray, style: "italic")[
+          VS Code, IntelliJ, Cursor
+        ]
+      ]
+    ]
+  ],
+  [
+    #text(size: 0.8em)[
+      #concept-block("2. Modello AI")[
+        - LLM genera codice
+        - Milioni di repository
+        - Semantica e intento
+        - Pattern e best practices
+        
+        #v(0.2em)
+        #text(size: 0.7em, fill: gray, style: "italic")[
+          GPT-4, Claude, Codex
+        ]
+      ]
+    ]
+  ],
+  [
+    #text(size: 0.8em)[
+      #concept-block("3. Integrazione")[
+        - Plugin/API di collegamento
+        - Gestione workflow
+        - Comunicazione bidirezionale
+        - Coordinamento tool
+        
+        #v(0.2em)
+        #text(size: 0.7em, fill: gray, style: "italic")[
+          Extension, language server
+        ]
+      ]
+    ]
+  ]
+)
+
+== AI-assisted - Componenti Tecnici Avanzati
+
+#text(size: 0.75em)[
+  #concept-block("4. Context Indexing & Retrieval")[
+    #grid(
+      columns: (1fr, 1fr),
+      gutter: 0.8em,
+      [
+        *Indicizzazione Progetto*
+        - #strong([Parsing e AST]): analisi strutturale
+        - #strong([Symbol tables]): funzioni, classi, variabili
+        - #strong([Dependency graph]): relazioni moduli
+        - #strong([Vector embeddings]): semantica
+      ],
+      [
+        *Context Retrieval*
+        - File aperti/attivi nell'editor
+        - Codice selezionato dall'utente
+        - Ricerca semantica (`#codebase`)
+        - Storia modifiche (git history)
+      ]
+    )
+  ]
+]
+
+#v(0.3em)
+
+#text(size: 0.7em)[
+  #note-block("Perché è importante")[
+    L'indexing permette all'AI di "vedere" l'intero progetto. Senza context retrieval, l'AI genererebbe codice generico e disconnesso dalla codebase.
+  ]
+]
+
+== AI-assisted - Tool Use & Agentic Capabilities
+
+#text(size: 0.75em)[
+  #concept-block("5. Tool Integration")[
+    Maggiori capacità di integrazione = migliore esperienza:
+    
+    #grid(
+      columns: (1fr, 1fr),
+      gutter: 0.8em,
+      [
+        *Tool Passivi (Base)*
+        - Completamento codice
+        - Suggerimenti inline
+        - Chat Q&A
+        - Documentazione
+      ],
+      [
+        *Tool Attivi (Agentic)*
+        - Esecuzione comandi terminal
+        - Navigazione autonoma codebase
+        - Web search e fetch
+        - Modifiche multi-file coordinate
+        - Testing e validazione automatica
+      ]
+    )
+  ]
+]
+
+#v(0.3em)
+
+#text(size: 0.7em)[
+  #warning-block("Livello di autonomia")[
+    I tool avanzati (agent mode) possono pianificare ed eseguire task complessi autonomamente. Vedremo nella prossima lezione l'Agentic AI.
+  ]
+]
+
+
+== AI-assisted - Flusso di Lavoro Completo
+
+#align(center)[
+  #text(size: 1.1em, weight: "bold")[Come si combinano i componenti]
+]
+
+#v(0.8em)
+
+#let flow-box(emoji, label, fill-color, stroke-color, width: 100pt, text-size: 0.75em) = {
+  box(
+    fill: fill-color,
+    stroke: 2pt + stroke-color,
+    radius: 5pt,
+    inset: 10pt,
+    width: width,
+    height: 80pt,
+    [#align(center + horizon)[#text(size: text-size, weight: "bold")[#emoji\ #label]]]
+  )
+}
+
+#let arrow = [#text(size: 1.8em)[→]]
+
+#align(center)[
+  #grid(
+    columns: (auto, auto, auto, auto, auto, auto, auto, auto, auto),
+    gutter: 12pt,
+    align: center + horizon,
+    
+    flow-box("👤", "Sviluppatore", rgb("#dbeafe"), rgb("#3b82f6")),
+    arrow,
+    flow-box("💻", [Editor/\ IDE], rgb("#e0e7ff"), rgb("#6366f1")),
+    arrow,
+    flow-box("🔍", [Context\ Indexing &\ Retrieval], rgb("#f3e8ff"), rgb("#a855f7"), width: 110pt, text-size: 0.7em),
+    arrow,
+    flow-box("🤖", [LLM\ (AI Model)], rgb("#fef3c7"), rgb("#f59e0b")),
+    arrow,
+    flow-box("✅", [Output &\ Integrazione], rgb("#fed7aa"), rgb("#f97316"), text-size: 0.7em),
+  )
+]
+
+
+#align(center)[
+  #text(size: 0.7em)[↓ _Agent Mode (opzionale)_ ↓]
+  
+  #flow-box("⚙️", [Tool Execution: terminal, search, test, refactor], rgb("#d1fae5"), rgb("#10b981"), width: 280pt)
+]
+
+
+#align(center)[
+  #text(size: 1.2em)[⤴ #text(size: 0.7em, style: "italic")[Feedback iterativo] ⤴]
+]
 
 
 == AI-assisted - Livelli di assistenza
@@ -495,6 +675,7 @@
 == Panoramica del mercato
 
 #figure(image("images/overview.drawio.png", width: 80%))
+
 
 == Tipologie di soluzioni AI-assisted
 #align(center)[
@@ -1092,6 +1273,16 @@
   )
 ]
 
+== Test D'unità - Richiamo
+
+== Test di unità (breve)
+#concept-block("Cosa sono e perché usarli")[
+  - I *test di unità* verificano il comportamento di singole unità di codice (funzioni/metodi) in isolamento.
+  - Sono veloci, piccoli, e servono come documentazione eseguibile del comportamento atteso.
+  - Esempio minimo (pytest): `assert add(2,3) == 5` → testa la funzione `add` senza dipendenze esterne.
+]
+
+
 == Copilot - Se volessi cambiare lo stile?
 - Spesso i team adottano #strong([linee guida di stile]) precise per il codice.
   - Ad esempio, l'uso di tool come `black`, `prettier`, `eslint` per la formattazione automatica.
@@ -1621,13 +1812,64 @@ Su `level-1` useremo Copilot sfruttando `inline-chat`.
 
 
 == Copilot - Livello 2 (Modalità Agente)
+
+#feature-block("Coding Agent Mode")[
+  #emph[With chat agent mode in Visual Studio Code, you can use natural language to specify a #underline[high-level task], and let AI #underline[autonomously] reason about the request, plan the work needed, and apply the changes to your codebase. Agent mode uses a combination of #underline[code editing] and #underline[tool invocation] to accomplish the task you specified. As it processes your request, it monitors the outcome of edits and tools, and iterates to resolve any issues that arise.]
+]
 - Con i tool precendenti, la chat è reattiva
 - La modalità agente è #strong([proattiva])
-- Può #strong([eseguire comandi]) autonomamente
-- Può #strong([navigare il codebase]) da sola
-- Può #strong([usare strumenti esterni]) (terminal, web search, ecc.)
-  - Vedremo meglio cosa sono gli agenti nella prossima lezione
-- La chat di progetto permette di interagire con l'intero codebase/file selezionati
+  - Può #strong([eseguire comandi]) autonomamente
+  - Può #strong([navigare il codebase]) da sola
+  - Può #strong([usare strumenti esterni]) (terminal, web search, ecc.)
+
+== Agent vs Tools 
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1em,
+  align: top,
+  [
+    #example-block("Coding Agent")[
+      - Riceve un #strong([compito ad alto livello])
+      - Pianifica i #underline([passi necessari])
+      - Esegue #underline([modifiche al codice])
+      - Usa #underline([strumenti esterni]) se necessario
+      - Monitora e #underline([corregge errori]) autonomamente
+    ]
+  ],
+  [
+    #example-block("Coding Tools")[
+      - Rispondono a #strong([richieste specifiche])
+      - Operano su #underline([contesto fornito])
+      - Non pianificano autonomamente
+      - Non eseguono modifiche senza input
+      - Non usano strumenti esterni
+    ]
+  ]
+)
+- Sono concetti collegati ad agentic AI
+- Li vedremo più in dettaglio nella prossima lezione
+
+== Copilot - Github
+- Copilot è anche per github
+
+== Copilot - Possibilità di Estensioni
+- Abbiamo visto che Copilot supporta vari modelli LLM
+- Puoi anche #strong([integrare modelli custom]) tramite API
+  - Noi vedremo ollama nella prossima lezione
+- Puoi #strong([creare tool personalizzati]) per estendere le capacità di Copilot
+  - Ad  esempio, tool per interagire con applicativi specifici
+- Puoi #strong([configurare flussi di lavoro]) personalizzati usando Copilot
+  - Ad esempio, pipeline di CI/CD con automazioni AI
+  - Questo è più AI per DevOps
 
 
-= Conclusioni
+== Conclusioni
+- this
+
+== Riferimenti 
+- 🔗 #link("https://code.visualstudio.com/docs/copilot/overview") - Documentazione ufficiale di GitHub Copilot per VS Code
+- 🔗 #link("https://github.com/features/copilot") - Sito ufficiale di GitHub Copilot
+- 🔗 #link("https://docs.github.com/en/copilot/tutorials/copilot-chat-cookbook") - Copilot Chat Cookbook
+- 🔗 #link("https://docs.github.com/en/copilot/tutorials/coding-agent/get-the-best-results") - Best Practices per Coding Agent
+- 📚 #link("https://www.oreilly.com/library/view/generative-ai-for/9781098162269/") - Generative AI for Software Development — O'Reilly Media, 2024
+- 📚 #link("https://www.oreilly.com/library/view/ai-assisted-programming/9781098164553/") - AI-Assisted Programming — O'Reilly Media, 2024
