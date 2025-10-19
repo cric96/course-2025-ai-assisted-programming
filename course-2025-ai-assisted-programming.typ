@@ -229,7 +229,7 @@
   [
     #concept-block("AI × Software Engineering")[
       #text(size: 0.85em)[
-        - *Focus*: Prodotto — potenziare sviluppo e output
+        - *Focus*: Processo — potenziare sviluppo e output
         - *Scopo*: supportare sviluppatori (coding, testing, refactoring)
         - *Come*: autocompletamento, test/doc generation, refactoring, bug detection
         - *Esempi*: GitHub Copilot, test generators, code-review assistants
@@ -240,7 +240,7 @@
   [
     #concept-block("Software Engineering × AI")[
       #text(size: 0.85em)[
-        - *Focus*: Processo — infrastruttura e workflow AI in produzione
+        - *Focus*: Prodtto — infrastruttura e workflow AI in produzione
         - *Scopo*: architetture, pipeline e governance per modelli/agenti
         - *Come*: RAG pipelines, model serving, observability, agentic systems
         - *Esempi*: infrastrutture RAG, MLflow/KFServing, agent orchestrators
@@ -253,7 +253,7 @@
 #v(0.6em)
 
 #align(center)[
-  #text(size: 0.85em, style: "italic")[AI × SE ottimizza il "cosa" (prodotto), SE × AI definisce il "come" (processo)]
+  #text(size: 0.85em, style: "italic")[AI × SE ottimizza il #underline["come"]  (processo), SE × AI definisce il #underline["cosa"] (prodotto)]
 ]
 
 
@@ -277,7 +277,7 @@
         - Feedback real-time
         
         #v(0.2em)
-        #text(size: 0.7em, fill: gray, style: "italic")[
+        #text(size: 0.7em, style: "italic")[
           VS Code, IntelliJ, Cursor
         ]
       ]
@@ -292,7 +292,7 @@
         - Pattern e best practices
         
         #v(0.2em)
-        #text(size: 0.7em, fill: gray, style: "italic")[
+        #text(size: 0.7em, style: "italic")[
           GPT-4, Claude, Codex
         ]
       ]
@@ -307,7 +307,7 @@
         - Coordinamento tool
         
         #v(0.2em)
-        #text(size: 0.7em, fill: gray, style: "italic")[
+        #text(size: 0.7em, style: "italic")[
           Extension, language server
         ]
       ]
@@ -395,11 +395,6 @@
 
 == AI-assisted - Flusso di Lavoro Completo
 
-#align(center)[
-  #text(size: 1.1em, weight: "bold")[Come si combinano i componenti]
-]
-
-#v(0.8em)
 
 #let flow-box(emoji, label, fill-color, stroke-color, width: 100pt, text-size: 0.75em) = {
   box(
@@ -552,7 +547,7 @@
 
 == Che cosa non è l'AI-assisted Programming? (3/5)
 #align(center)[
-  #text(size: 1.5em, weight: "bold")[Non è solo IntelliSense o code snippets]
+  #text(size: 1.5em, weight: "bold")[Non è solo IntelliSense]
 ]
 
 #concept-block("Caratteristiche")[
@@ -1251,8 +1246,7 @@
 == Copilot - Livello 0 (Cambiare modello)
 - Copilot nasce con Codex (basato su GPT-3)
 - Ora è #underline[model-agnostic]: puoi scegliere tra vari modelli LLM
-  - GPT-4.1, GPT-5 (mini)
-  - Claude (Anthropic)
+  - anche se ad oggi l'autocompletamento va via GPT 4.1
 - Alcuni modelli sono #strong([premium]) (Pro+)
 - Cambia modello con `F1` → `GitHub Copilot: Select AI Model`
 - Ad oggi, `gpt-41-copilot` è l'unico disponibile per utenti free
@@ -1418,29 +1412,32 @@
 == Copilot - Se volessi cambiare lo stile?
 - Spesso i team adottano #strong([linee guida di stile]) precise per il codice.
   - Ad esempio, l'uso di tool come `black`, `prettier`, `eslint` per la formattazione automatica.
+  - Ma più in generale, regole su nomi di variabili, struttura delle funzioni, commenti, ecc.
 - Puoi #strong([chiedere a Copilot]) di rispettare queste regole direttamente nei prompt.
 - Esempi pratici:
   - `# Format this code according to PEP8 guidelines`
-  - `# Use prettier to format this JavaScript code`
+  - `# Follow clean code principles in your implementation`
+  - `# Avoid unnecessary comments and keep functions short`
 - Copilot tenterà di #strong([adattare le sue risposte]) alle tue richieste di stile (zero-shot learning).
 - Per applicare uno stile di progetto a tutto il codebase, puoi aggiungere un file `github-instructions.md` nella root del progetto con le regole desiderate.
 
 == Copilot - Livello 1 (Demo)
 Su `level-1` useremo Copilot sfruttando `inline-chat`.
 1. *Generazione guidata con chat inline* (`Ctrl+I`):
-     - Descrivi l'obiettivo generale e genera il programma completo
+    - Cerca di far generare lo script di prima usando la chat
      - Itera e correggi errori usando la chat
   
   2. *Comandi predefiniti su `kanban`*:
      - `/explain` → comprendi il codice esistente
      - `/doc` → genera documentazione per classi in `models`
      - `/test` → crea test per `Project`
-     - `/fix` → correggi test falliti
+     - `/fix` → correggi test falliti/codice errato (c'è un bug!)
      - Refactoring del main via chat
   
   3. *Personalizzazione stile con `.github/copilot-instructions.md`*:
-     - Genera `draw_flower.py` prima e dopo le istruzioni custom
-     - Osserva come cambiano stile, librerie e struttura del codice
+     - Chiedi a Copilot di fare uno script per generare un fiore
+     - Genera `draw_flower.py` prima e dopo le istruzioni custom (leggi il README)
+     - Osserva le differenze nello stile del codice
 
 == Livello 1 - Discussione post-demo
 
@@ -1462,6 +1459,9 @@ Su `level-1` useremo Copilot sfruttando `inline-chat`.
     - Puoi #strong([fare domande]), #strong([chiedere spiegazioni])
     - La chat comprende il #underline([contesto del progetto])
     - Supporta #emph([conversazioni multi-turno])
+    - Due modalità principali:
+      - #strong([ask mode]): fai domande generali
+      - #strong([edit mode]): modifica il codice esistente
   ],
   [
     #figure(image("images/full-chat.png", width: 90%))
@@ -1988,6 +1988,119 @@ Su `level-1` useremo Copilot sfruttando `inline-chat`.
 )
 - Sono concetti collegati ad agentic AI
 - Li vedremo più in dettaglio nella prossima lezione
+== Agent - Demo
+
+#concept-block("Obiettivo")[
+  #text(size: 0.9em)[
+    - Scegli una piccola applicazione #strong([concreta]) e #underline([ben definita]) (es. TODO, note, mini-API).
+    - Descrivi il #strong([risultato atteso]) e i #underline([vincoli]) (linguaggio, framework, struttura).
+    - Indica dati di esempio e criteri di successo.
+    - Chiudi il prompt con: #strong[#underline["Sviluppalo in Javascript seguendo lo stato dell'arte per la struttura del progetto"]]
+  ]
+]
+
+#warning-block("Attenzione")[
+  #text(size: 0.9em)[
+    - Questo approccio è simile a #strong([vibe coding])
+    - Rischio di generare codice senza piena comprensione
+    - #underline([Revisione critica]) del risultato è essenziale
+  ]
+]
+
+#example-block("Prompt di esempio")[
+  #text(size: 0.95em)[
+    Implementa un'applicazione per gestire una scheda degli esercizi in palestra con le seguenti funzionalità:
+    - Aggiungere nuovi esercizi con nome, serie, ripetizioni e peso
+    - Visualizzare la lista degli esercizi
+    - Modificare ed eliminare esercizi esistenti
+    - Salvare i dati localmente in un file JSON
+
+    Sviluppalo in Javascript seguendo lo stato dell'arte per la struttura del progetto
+  ]
+]
+
+== Agent - Considerazioni
+
+#concept-block("Domande di review")[
+  - In quanti siete riusciti a #underline([completare]) il task?
+  - Se doveste risalire a parti specifiche del codice, #strong([come fareste])?
+  - Quali #emph([difficoltà]) avete incontrato?
+  - Come #strong([valutate]) il codice generato?
+]
+
+#note-block("Valutazione veloce")[
+  - #strong([Correttezza]): rispetta requisiti/API?
+  - #strong([Qualità]): nomi chiari, funzioni brevi, #underline([coerenza]) stile
+  - #strong([Integrazione]): struttura progetto sensata (build, run, lint)?
+]
+
+== Chat - Nuove modalità
+
+#concept-block("Modalità personalizzate")[
+  - Crea #strong([agenti specializzati]) per task specifici (`.chatmode.md`)
+  - Configura #strong([tools]) e #strong([istruzioni]) per ciascuna modalità
+  - Salva in #strong([`.github/chatmodes/`]) (workspace) o profilo utente
+]
+#note-block("Built-in vs Custom")[
+  - #strong([Built-in]): Ask, Edit, Agent (uso generale)
+  - #strong([Custom]): es. "Plan" (genera piani implementazione senza edit), "Review" (code review), "Research" (analisi opzioni)
+  - Cambia modalità dal dropdown nella Chat view
+]
+#grid(
+  columns: (1fr),
+  gutter: 1.2em,
+  align: top,
+  [
+    #example-block("Esempio: Planning Mode")[
+      ```markdown
+      ---
+      description: Generate implementation plan
+      tools: ['fetch', 'search', 'usages']
+      ---
+      # Planning mode instructions
+      Generate an implementation plan. 
+      NO code edits, just planning.
+      Include: Overview, Requirements, 
+      Implementation Steps, Testing.
+      ```
+    ]
+  ]
+)
+
+== Chat - Prompt Riusabili
+
+#concept-block("Struttura e posizione")[
+  - Salva i prompt in #strong([`.github/prompts/<nome>.prompt.md`])
+  - Richiama da chat con lo #underline([slash]): `/<nome>`
+  - Usa metadata in testa al file per #strong([mode]) e #strong([descrizione])
+]
+#note-block("Consigli")[
+  - Dai #strong([vincoli chiari]) (tooling, script, stile).  
+  - Includi #underline([criteri di verifica]) (test, lint, build).  
+  - Mantieni i prompt brevi, specifici e versionati.
+]
+#grid(
+  columns: (1fr),
+  gutter: 1.2em,
+  align: top,
+  [
+    #example-block("Esempio: tdd")[
+      ```markdown
+      ---
+      mode: agent
+      description: Test-driven implementation
+      ---
+      Work in strict TDD:
+      1) Write failing tests for the next small behavior
+      2) Implement minimal code to pass
+      3) Refactor keeping tests green
+      Include coverage and edge cases.
+      ```
+    ]
+  ]
+)
+
+
 
 #focus-slide[
   == Context Engineering
@@ -1997,11 +2110,6 @@ Su `level-1` useremo Copilot sfruttando `inline-chat`.
 
 == Context Engineering - Introduzione
 
-#align(center)[
-  #text(size: 1.2em, weight: "bold")[Come fornire il giusto contesto all'AI]
-]
-
-#v(0.5em)
 
 #definition-block("Context Engineering")[
   È un approccio sistematico per fornire agli agenti AI informazioni mirate sul progetto, migliorando la qualità e l'accuratezza del codice generato.
@@ -2371,38 +2479,154 @@ Su `level-1` useremo Copilot sfruttando `inline-chat`.
     - *Multiple projects*: template riutilizzabili
   ]
 ]
+== Copilot - Integrazione con GitHub
 
-== Copilot - Github
-- Copilot si integra perfettamente con #strong([GitHub])
-- Puoi usare Copilot Chat direttamente su #strong([GitHub Codespaces])
-- Puoi usare Copilot in #strong([Pull Requests]) per:
-  - Generare descrizioni PR
-  - Suggerire modifiche al codice
-  - Creare test automatici per le PR
-- Puoi usare Copilot in #strong([Issues]) per:
-  - Riassumere discussioni
-  - Suggerire soluzioni
-  - Generare template per bug report
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1em,
+  align: top,
+  [
+    #concept-block("GitHub Codespaces")[
+      #text(size: 0.75em)[
+        - IDE completo #strong([nel browser])
+        - Copilot Chat #underline([già integrato])
+        - Setup istantaneo del progetto
+        - Collaborazione real-time
+      ]
+    ]
+    
+    #v(0.5em)
+    
+    #concept-block("Pull Requests")[
+      #text(size: 0.75em)[
+        - #fa-icon("file-text") #h(0.3em) Genera descrizioni PR automatiche
+        - #fa-icon("code") #h(0.3em) Suggerisce modifiche al codice
+        - #fa-icon("check-circle") #h(0.3em) Crea test per le modifiche
+        - #fa-icon("comments") #h(0.3em) Review automatica del codice
+      ]
+    ]
+  ],
+  [
+    #concept-block("GitHub Issues")[
+      #text(size: 0.75em)[
+        - #fa-icon("list-alt") #h(0.3em) Riassume discussioni lunghe
+        - #fa-icon("lightbulb") #h(0.3em) Suggerisce soluzioni tecniche
+        - #fa-icon("file-code") #h(0.3em) Genera template bug report
+        - #fa-icon("search") #h(0.3em) Trova issue correlate
+      ]
+    ]
+    
+    #v(0.5em)
+    
+    #note-block("Pro Tip")[
+      #text(size: 0.7em)[
+        Copilot impara dal #strong([contesto del repository]) (issues, PR, discussioni) per suggerimenti più contestuali
+      ]
+    ]
+  ]
+)
 
+== Copilot - Estensibilità e Personalizzazione
 
-== Copilot - Possibilità di Estensioni
-- Abbiamo visto che Copilot supporta vari modelli LLM
-- Puoi anche #strong([integrare modelli custom]) tramite API
-  - Noi vedremo ollama nella prossima lezione
-- Puoi #strong([creare tool personalizzati]) per estendere le capacità di Copilot
-  - Ad  esempio, tool per interagire con applicativi specifici
-- Puoi #strong([configurare flussi di lavoro]) personalizzati usando Copilot
-  - Ad esempio, pipeline di CI/CD con automazioni AI
-  - Questo è più AI per DevOps
+#grid(
+  columns: (1fr, 1fr, 1fr),
+  gutter: 0.8em,
+  align: top,
+  
+  block(
+    fill: rgb("#f0f9ff"),
+    width: 100%,
+    inset: 0.7em,
+    radius: 6pt,
+    stroke: (paint: rgb("#3b82f6"), thickness: 1.5pt),
+    [
+      #align(center)[
+        #text(size: 2em)[🤖]
+        #v(0.2em)
+        #text(size: 0.85em, weight: "bold")[Modelli Custom]
+      ]
+      #v(0.3em)
+      #text(size: 0.7em)[
+        - Integra #strong([modelli locali]) via API
+        - Supporto per #underline([Ollama])
+        - Fine-tuning su codebase aziendale
+        - Privacy e controllo completo
+      ]
+    ]
+  ),
+  
+  block(
+    fill: rgb("#f3e8ff"),
+    width: 100%,
+    inset: 0.7em,
+    radius: 6pt,
+    stroke: (paint: rgb("#a855f7"), thickness: 1.5pt),
+    [
+      #align(center)[
+        #text(size: 2em)[🔧]
+        #v(0.2em)
+        #text(size: 0.85em, weight: "bold")[Tool Personalizzati]
+      ]
+      #v(0.3em)
+      #text(size: 0.7em)[
+        - Crea #strong([tool specifici]) per workflow
+        - Integra con #underline([servizi aziendali])
+        - Estendi capacità dell'agent mode
+        - Automazioni domain-specific
+      ]
+    ]
+  ),
+  
+  block(
+    fill: rgb("#fef3c7"),
+    width: 100%,
+    inset: 0.7em,
+    radius: 6pt,
+    stroke: (paint: rgb("#f59e0b"), thickness: 1.5pt),
+    [
+      #align(center)[
+        #text(size: 2em)[⚙️]
+        #v(0.2em)
+        #text(size: 0.85em, weight: "bold")[Workflow Custom]
+      ]
+      #v(0.3em)
+      #text(size: 0.7em)[
+        - Pipeline #strong([CI/CD]) con AI
+        - Automazioni #underline([DevOps intelligenti])
+        - Code review automatizzate
+        - Testing e deployment AI-driven
+      ]
+    ]
+  )
+)
+
 
 
 == Conclusioni
-- this
 
-== Riferimenti 
-- 🔗 #link("https://code.visualstudio.com/docs/copilot/overview") - Documentazione ufficiale di GitHub Copilot per VS Code
-- 🔗 #link("https://github.com/features/copilot") - Sito ufficiale di GitHub Copilot
-- 🔗 #link("https://docs.github.com/en/copilot/tutorials/copilot-chat-cookbook") - Copilot Chat Cookbook
-- 🔗 #link("https://docs.github.com/en/copilot/tutorials/coding-agent/get-the-best-results") - Best Practices per Coding Agent
-- 📚 #link("https://www.oreilly.com/library/view/generative-ai-for/9781098162269/") - Generative AI for Software Development — O'Reilly Media, 2024
-- 📚 #link("https://www.oreilly.com/library/view/ai-assisted-programming/9781098164553/") - AI-Assisted Programming — O'Reilly Media, 2024
+- In questa lezione abbiamo esplorato l'#strong([AI-assisted programming]):
+  - Focus su strumenti e workflow per sviluppatori
+  - Approccio pratico e orientato alla produttività
+  - Cenni sulle implicazioni manageriali e organizzative
+
+- Nella #strong([prossima lezione]) approfondiremo il tema dell'#emph([Agentic AI]):
+  - Come integrare e utilizzare modelli AI locali
+  - Costruzione di agenti personalizzati (anche oltre il coding)
+  - Introduzione a concetti avanzati come #strong([MCP]) e automazione intelligente
+
+#v(1em)
+
+#align(center)[
+  #text(size: 1em, style: "italic")[
+    L'AI-assisted programming è solo l'inizio: il futuro è fatto di agenti intelligenti e workflow sempre più automatizzati.
+  ]
+]
+
+== Riferimenti
+
+- 🔗 #link("https://code.visualstudio.com/docs/copilot/overview") — #strong([Documentazione ufficiale di GitHub Copilot per VS Code])
+- 🔗 #link("https://github.com/features/copilot") — #strong([Sito ufficiale di GitHub Copilot])
+- 🔗 #link("https://docs.github.com/en/copilot/tutorials/copilot-chat-cookbook") — #emph([Copilot Chat Cookbook])
+- 🔗 #link("https://docs.github.com/en/copilot/tutorials/coding-agent/get-the-best-results") — #emph([Best Practices per Coding Agent])
+- 📚 #link("https://www.oreilly.com/library/view/generative-ai-for/9781098162269/") — #strong([Generative AI for Software Development]) — O'Reilly Media, 2024
+- 📚 #link("https://www.oreilly.com/library/view/ai-assisted-programming/9781098164553/") — #strong([AI-Assisted Programming]) — O'Reilly Media, 2024
