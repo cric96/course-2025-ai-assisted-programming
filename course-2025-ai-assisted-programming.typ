@@ -91,7 +91,8 @@
     - Cos'è #strong(emph([AI-assisted programming])) e perché è #underline([importante])
     - #strong([Soluzioni e strumenti principali]) (focus su #emph([GitHub Copilot]))
     - #strong([Demo pratica]) e discussione sulle #underline([funzionalità])
-    - #strong([Limiti]), #emph([criticità]) ed #underline([etica]) dell'AI-assisted
+      - Così da comprendere meglio come l'AI può supportare il lavoro degli sviluppatorie e non.
+    - #strong([Limiti]) e #emph([criticità]) dell'AI-assisted programming
   ]
 ]
 
@@ -221,6 +222,41 @@
   )
 )
 
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1em,
+  align: top,
+  [
+    #concept-block("AI × Software Engineering")[
+      #text(size: 0.85em)[
+        - *Focus*: Prodotto — potenziare sviluppo e output
+        - *Scopo*: supportare sviluppatori (coding, testing, refactoring)
+        - *Come*: autocompletamento, test/doc generation, refactoring, bug detection
+        - *Esempi*: GitHub Copilot, test generators, code-review assistants
+        - *Metriche*: time-to-delivery, defect density, test coverage
+      ]
+    ]
+  ],
+  [
+    #concept-block("Software Engineering × AI")[
+      #text(size: 0.85em)[
+        - *Focus*: Processo — infrastruttura e workflow AI in produzione
+        - *Scopo*: architetture, pipeline e governance per modelli/agenti
+        - *Come*: RAG pipelines, model serving, observability, agentic systems
+        - *Esempi*: infrastrutture RAG, MLflow/KFServing, agent orchestrators
+        - *Metriche*: latenza, disponibilità, compliance, costo operativo
+      ]
+    ]
+  ]
+)
+
+#v(0.6em)
+
+#align(center)[
+  #text(size: 0.85em, style: "italic")[AI × SE ottimizza il "cosa" (prodotto), SE × AI definisce il "come" (processo)]
+]
+
+
 == AI-assisted - Anatomia delle Soluzioni
 #align(center)[
   #text(size: 1.2em, weight: "bold")[Componenti fondamentali di un tool AI-assisted]
@@ -311,6 +347,14 @@
     L'indexing permette all'AI di "vedere" l'intero progetto. Senza context retrieval, l'AI genererebbe codice generico e disconnesso dalla codebase.
   ]
 ]
+
+== AI-assisted - Indexing & Retrieval
+#align(center)[
+  #image("images/embedding.png", width: 80%)
+]
+- Avete già sentito parlare di #strong[RAG]
+- Queste tecniche vengono #strong([utilizzate]) anche (e #strong([soprattutto])) per il #underline([codice])
+- Si fa in modo che il nostro modello AI #strong([conosca]) il #underline([contesto del progetto])
 
 == AI-assisted - Tool Use & Agentic Capabilities
 
@@ -936,8 +980,7 @@
 )
 
 
-= Github Copilot
-== Introduzione
+= AI-assisted in Practice: GitHub Copilot
 == Copilot (Github)
 #align(center)[
   #image("images/copilot-logo.png", width: 15%)
@@ -1181,12 +1224,18 @@
   ```bash
     pip install -r requirements.txt
   ```
+  - È possibile anche utilizzare #strong[Codespaces] (IDE nel cloud) per evitare setup locale
 ]
 
+#focus-slide[
+  == AI-assisted Livello 0
+
+  === Autocompletamento 
+]
 
 == Copilot - Livello 0 (Autocompletamento di base)
 - #strong([Copilot]) fornisce #emph([suggerimenti di codice in tempo reale]) mentre digiti.
-- Basato sul #strong([contesto immediato]) del file.
+- Basato (principalmente) sul #strong([contesto immediato]) del file.
 - #emph([Prima feature introdotta nel 2021.])
 - #strong([Pro:]) velocizza la scrittura di codice #emph([boilerplate]) e routine comuni.
 - #bold([Contro:]) limitato al #emph([contesto locale]), non (sempre) comprende l'#emph([intero progetto]).
@@ -1194,7 +1243,7 @@
 
 == Copilot - Livello 0 (alcune funzionalità)
 - Puoi #strong([accettare]) il suggerimento con `Tab`
-  - O parzialmente con `Ctrl+Right`
+  - O accettare parzialmente con `Ctrl+Right`
 - È possibile #strong([scartare]) con `Esc` o continuando a scrivere
 - #strong([Vedere alternative]) con `F1` → `GitHub Copilot: Open Completions Panel`
 #figure(image("images/alternatives.png", width: 50%))
@@ -1223,6 +1272,83 @@
   - Usate #strong([Copilot]) per completarle
   - Provate a #emph([togliere tutte le funzioni]) e osservate cosa succede
 ]
+== Livello 0 - Risultato delle Funzioni (1/2)
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1.5em,
+  row-gutter: 1.5em,
+  align: center,
+  // plot_expenses_by_category
+  block(
+    fill: rgb("#f8fafc"),
+    width: 100%,
+    inset: 1em,
+    radius: 8pt,
+    stroke: (paint: rgb("#cbd5e0"), thickness: 2pt),
+    [
+      #align(center)[
+        #image("images/exercise-0/plot_expenses_by_category.png", width: 50%)
+        #v(0.5em)
+        #text(size: 0.9em, weight: "bold")[`plot_expenses_by_category`]
+      ]
+    ]
+  ),
+  // plot_expenses_per_day
+  block(
+    fill: rgb("#f8fafc"),
+    width: 100%,
+    inset: 1em,
+    radius: 8pt,
+    stroke: (paint: rgb("#cbd5e0"), thickness: 2pt),
+    [
+      #align(center)[
+        #image("images/exercise-0/plot_expenses_per_day.png", width: 100%)
+        #v(0.5em)
+        #text(size: 0.9em, weight: "bold")[`plot_expenses_per_day`]
+      ]
+    ]
+  ),
+)
+
+== Livello 0 - Risultato delle Funzioni (2/2)
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1.5em,
+  row-gutter: 1.5em,
+  align: center,
+  // plot_incomes
+  block(
+    fill: rgb("#f8fafc"),
+    width: 100%,
+    inset: 1em,
+    radius: 8pt,
+    stroke: (paint: rgb("#cbd5e0"), thickness: 2pt),
+    [
+      #align(center)[
+        #image("images/exercise-0/plot_incomes.png", width: 90%)
+        #v(0.5em)
+        #text(size: 0.9em, weight: "bold")[`plot_incomes`]
+      ]
+    ]
+  ),
+  // plot_monthly_balance
+  block(
+    fill: rgb("#f8fafc"),
+    width: 100%,
+    inset: 1em,
+    radius: 8pt,
+    stroke: (paint: rgb("#cbd5e0"), thickness: 2pt),
+    [
+      #align(center)[
+        #image("images/exercise-0/plot_monthly_balance.png", width: 90%)
+        #v(0.5em)
+        #text(size: 0.9em, weight: "bold")[`plot_monthly_balance`]
+      ]
+    ]
+  ),
+)
 
 == Livello 0 - Compito: Discussione
 
@@ -1236,6 +1362,12 @@
 
 #warning-block("Suggerimento")[
   #emph([Sperimentate!]) Provate a cambiare i commenti o aggiungere dettagli per vedere come Copilot si adatta.
+]
+
+#focus-slide[
+  == AI-assisted Livello 1
+
+  === Chat e Comandi
 ]
 
 == Copilot - Livello 1 (inline chat)
@@ -1422,6 +1554,10 @@ Su `level-1` useremo Copilot sfruttando `inline-chat`.
     - Inizia una nuova chat quando cambi completamente contesto
     - Usa la cronologia per #underline([iterazioni incrementali]) sullo stesso problema
   ]
+]
+
+#focus-slide[
+  == Prompt Engineering -- Best Practices
 ]
 
 == Copilot - Livello 1 (Prompt engineering)
@@ -1809,7 +1945,11 @@ Su `level-1` useremo Copilot sfruttando `inline-chat`.
   )
 ]
 
+#focus-slide[
+  == AI-assisted Livello 2
 
+  === Modalità Agente
+]
 
 == Copilot - Livello 2 (Modalità Agente)
 
@@ -1849,7 +1989,11 @@ Su `level-1` useremo Copilot sfruttando `inline-chat`.
 - Sono concetti collegati ad agentic AI
 - Li vedremo più in dettaglio nella prossima lezione
 
-= Context Engineering
+#focus-slide[
+  == Context Engineering
+
+  === Fornire il giusto contesto all'AI
+]
 
 == Context Engineering - Introduzione
 
@@ -1888,6 +2032,12 @@ Su `level-1` useremo Copilot sfruttando `inline-chat`.
   ]
 ]
 
+== Contenxt Engineering - Introduzione
+#align(center)[
+  #image("images/result-context-eng.png")
+]
+== Context Engineering - Workflow
+#figure(image("images/context-engineering-workflow.png", width: 50%))
 == Context Engineering - Workflow
 
 #text(size: 0.75em)[
