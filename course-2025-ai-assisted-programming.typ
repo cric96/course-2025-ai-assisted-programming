@@ -46,7 +46,7 @@
   ),
   config-info(
     title: [AI-assisted Programming],
-    subtitle: [Come l'AI sta cambiando il modo di programmare],
+    subtitle: [Come l'AI sta cambiando il modo di programmare #image("images/disi.svg", width: 55%)],
     author: author_list(
       (
         (first_author("Gianluca Aguzzi"), "gianluca.aguzzi@unibo.it"),
@@ -54,11 +54,11 @@
     ),
     date: datetime.today().display("20 Ottobre 2025"),
     institution: [Università di Bologna - DISI],
-    logo: align(right)[#image("images/disi.svg", width: 55%)],
+    //logo: align(right)[#image("images/disi.svg", width: 55%)],
   ),
 )
 
-#set text(font: "Fira Sans", weight: "light", size: 20pt)
+#set text(font: "Fira Sans", weight: "light", size: 18pt)
 
 #set raw(tab-size: 4)
 #show raw: set text(size: 1em)
@@ -135,10 +135,10 @@
 = AI-assisted Programming
 
 == Cosa sta succedendo?
-#figure(image("images/tweet-1.png", width: 100%))
+#figure(image("images/tweet-1.png", width: 60%))
 
 == Cosa sta succedendo?
-#figure(image("images/tweet-3.png", width: 100%))
+#figure(image("images/tweet-3.png", width: 60%))
 
 == Cosa sta succedendo?
 #figure(image("images/andreji.png", width: 60%))
@@ -147,7 +147,7 @@
 #figure(image("images/evolution.png", width: 100%))
 
 == Costa sta succedendo?
-#image("images/users.jpeg", width: 100%)
+#figure(image("images/users.jpeg", width: 70%))
 
 == Che cosa è l'AI-assisted Programming?
 #definition-block(
@@ -222,6 +222,7 @@
   )
 )
 
+== AI-Assisted - AI × SE vs SE × AI
 #grid(
   columns: (1fr, 1fr),
   gutter: 1em,
@@ -915,62 +916,6 @@
     - Problemi di privacy
     - Inadatto per progetti grandi
     - Spesso freemium
-  ]
-)
-== Quale approccio scegliere?
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 1.5em,
-  align: top,
-  [
-    #concept-block("Scegli un PLUGIN se...")[
-      - Hai già un #strong([IDE preferito]) (VS Code, IntelliJ, etc.)
-      - Vuoi #underline([mantenere il tuo workflow esistente])
-      - Lavori con #emph([progetti enterprise complessi])
-      - Preferisci #strong([stabilità]) e #strong([maturità])
-      
-      #v(0.5em)
-      #text(size: 0.85em, style: "italic")[
-        _Ideale per: #strong([professionisti]) con setup consolidato_
-      ]
-    ]
-    
-    #v(0.5em)
-    
-    #concept-block("Scegli WEB-BASED se...")[
-      - Vuoi #strong([iniziare subito]) senza installare nulla
-      - Lavori su #underline([più dispositivi])
-      - Fai #strong([prototipazione rapida])
-      - #emph([Insegni]) o #emph([impari]) a programmare
-      - Collabori in #underline([tempo reale]) con altri
-      
-      #v(0.5em)
-      #text(size: 0.85em, style: "italic")[
-        _Ideale per: #strong([learners]), #strong([educatori]), prototipazione_
-      ]
-    ]
-  ],
-  [
-    #concept-block("Scegli IDE NATIVO se...")[
-      - Vuoi la #strong(underline([migliore esperienza AI possibile]))
-      - Vuoi un editor #underline([ottimizzato per AI-first])
-      - Sei disposto a #emph([cambiare workflow])
-      - Non hai bisogno di #strong([tante estensioni])
-      
-      #v(0.5em)
-      #text(size: 0.85em, style: "italic")[
-        _Ideale per: #strong([early adopters]), progetti AI-intensive_
-      ]
-    ]
-    
-    #v(0.5em)
-    
-    #warning-block("⚖️ Considerazioni aggiuntive")[
-      - *Budget*: web spesso #strong([gratis]) come modelli freemium
-      - *Privacy*: plugin/IDE locali #strong([>]) web cloud
-      - *Team*: considera cosa #emph([usa già]) il team
-      - *Progetti*: legacy enterprise → #strong([plugin]), greenfield → #strong([IDE nativi])
-    ]
   ]
 )
 
@@ -1848,20 +1793,6 @@ Su `level-1` useremo Copilot sfruttando `inline-chat`.
   ]
 ]
 
-#v(1em)
-
-#text(size: 0.9em)[
-  #example-block("Esempio 2: Documentazione")[
-    ```
-    #file:orders.py
-    Genera documentazione completa per la funzione process_orders():
-    - Docstring con parametri, return value, eccezioni
-    - Sezione README.md con esempi d'uso
-    - Note su performance e limitazioni
-    ```
-  ]
-]
-
 == Prompt engineering — Quick reference
 
 #text(size: 0.9em)[
@@ -2046,6 +1977,8 @@ Su `level-1` useremo Copilot sfruttando `inline-chat`.
   - #strong([Custom]): es. "Plan" (genera piani implementazione senza edit), "Review" (code review), "Research" (analisi opzioni)
   - Cambia modalità dal dropdown nella Chat view
 ]
+
+#v(1em)
 #grid(
   columns: (1fr),
   gutter: 1.2em,
@@ -2079,6 +2012,10 @@ Su `level-1` useremo Copilot sfruttando `inline-chat`.
   - Includi #underline([criteri di verifica]) (test, lint, build).  
   - Mantieni i prompt brevi, specifici e versionati.
 ]
+
+
+#v(2em)
+
 #grid(
   columns: (1fr),
   gutter: 1.2em,
