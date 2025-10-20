@@ -2416,6 +2416,10 @@ Su `level-1` useremo Copilot sfruttando `inline-chat`.
     - *Multiple projects*: template riutilizzabili
   ]
 ]
+
+#align(center)[
+  https://github.com/cric96/course-2025-ai-assisted-code-advanced
+]
 == Copilot - Integrazione con GitHub
 
 #grid(
