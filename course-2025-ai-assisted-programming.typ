@@ -664,7 +664,7 @@
 
 == Che cosa non è l'AI-assisted Programming? (5/5)
 #align(center)[
-  #text(size: 1.5em, weight: "bold")[Non è Vibe Coding]
+  #text(size: 1.5em, weight: "bold")[Non è (solo) Vibe Coding]
 ]
 #concept-block("Caratteristiche")[
   - *Sviluppo guidato solo da linguaggio naturale* senza mai leggere o analizzare il codice generato
@@ -2550,14 +2550,6 @@ Su `level-1` useremo Copilot sfruttando `inline-chat`.
   - Come integrare e utilizzare modelli AI locali
   - Costruzione di agenti personalizzati (anche oltre il coding)
   - Introduzione a concetti avanzati come #strong([MCP]) e automazione intelligente
-
-#v(1em)
-
-#align(center)[
-  #text(size: 1em, style: "italic")[
-    L'AI-assisted programming è solo l'inizio: il futuro è fatto di agenti intelligenti e workflow sempre più automatizzati.
-  ]
-]
 
 == Riferimenti
 
